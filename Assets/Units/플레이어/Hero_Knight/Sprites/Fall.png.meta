@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 724e79479548b1b4eba4ee49aeeee4aa
+guid: daf241564a8049b4cac17e76b9bbfedb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7460046300004610927
-    second: Jump_0
+      213: -5966621866309598838
+    second: Fall_0
   - first:
-      213: 7034338576483803127
-    second: Jump_1
+      213: -2069157278089061004
+    second: Fall_1
   - first:
-      213: 6054277451648750542
-    second: Jump_2
+      213: 6596617931644657277
+    second: Fall_2
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -32,6 +32,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -66,6 +67,8 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -131,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_0
+      name: Fall_0
       rect:
         serializedVersion: 2
         x: 0
@@ -145,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48a237ab2d4133148a53827da64bda30
-      internalID: 7460046300004610927
+      spriteID: acc73217f281102468121b8ed98a5cde
+      internalID: -5966621866309598838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_1
+      name: Fall_1
       rect:
         serializedVersion: 2
         x: 180
@@ -166,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61fd5edf92bc32144a0676fef1284bed
-      internalID: 7034338576483803127
+      spriteID: f1fb9f470ba1c1441aaf0da03601e32b
+      internalID: -2069157278089061004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_2
+      name: Fall_2
       rect:
         serializedVersion: 2
         x: 360
@@ -187,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b36d70f468e7e254ba2b529a7d2c6628
-      internalID: 6054277451648750542
+      spriteID: 267f7e68aaf964b4cb370a5b8d4c8127
+      internalID: 6596617931644657277
       vertices: []
       indices: 
       edges: []
