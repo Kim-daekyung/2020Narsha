@@ -8,9 +8,10 @@ public class SubMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (GsubMenu.activeSelf) GsubMenu.gameObject.SetActive(false);
-            else GsubMenu.gameObject.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GsubMenu.activeSelf) { GsubMenu.gameObject.SetActive(false); Time.timeScale = 1; }
+            else { GsubMenu.gameObject.SetActive(true); Time.timeScale = 0  ; }
         }
 
     }

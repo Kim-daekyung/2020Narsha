@@ -10,6 +10,9 @@ public class SoundManager : MonoBehaviour
     
     public AudioClip hyogwaum2; 
     AudioSource myAudio2;
+    
+    public AudioClip hyogwaum3; 
+    AudioSource myAudio3;
 
     public static SoundManager instance;
 
@@ -31,5 +34,9 @@ public class SoundManager : MonoBehaviour
     {
         myAudio.PlayOneShot(hyogwaum2);
     }
-
+    public void PlaySound3()
+    {
+        myAudio.PlayOneShot(hyogwaum3);
+    }
+    //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound3(); 다른 소스에서 함수 참조
 }
