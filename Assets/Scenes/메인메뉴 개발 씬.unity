@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hyogwaum: {fileID: 8300000, guid: eb4721a13e25763448376efbf35f54fd, type: 3}
   hyogwaum2: {fileID: 8300000, guid: 5ef7dc5c5d2d78f4c931d25f9942ca48, type: 3}
+  hyogwaum3: {fileID: 8300000, guid: 6b30b64d43c74ee4e873be35210694f7, type: 3}
 --- !u!82 &246037301
 AudioSource:
   m_ObjectHideFlags: 0
