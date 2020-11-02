@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Move : MonoBehaviour
+public class Player_Move : Stats
 {
-    public float speed;
-    private Vector3 vector;
+    
+    
     public Animator animator;
     private SpriteRenderer sprite;
     private float cooltime_attack = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
+       
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
     }
