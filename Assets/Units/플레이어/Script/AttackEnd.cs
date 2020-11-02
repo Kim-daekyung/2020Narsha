@@ -8,6 +8,7 @@ public class AttackEnd : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("Attack", false);
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound4(); //수정부분
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

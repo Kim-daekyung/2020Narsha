@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player_Move : Stats
 {
-    
-    
+    float timer; //수정
+    float waitingTime; //수정
+
     public Animator animator;
     private SpriteRenderer sprite;
     private float cooltime_attack = 0;
@@ -16,11 +17,16 @@ public class Player_Move : Stats
        
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+
+        timer = 0.0f; //수정
+        waitingTime = 0.3f; //수정
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
         animator.SetBool("isWalk", false);
 
@@ -29,10 +35,20 @@ public class Player_Move : Stats
         {
             animator.SetBool("Attack", true);
             cooltime_attack = 1;
+            if (Input.GetAxisRaw("Horizontal") == 0)
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound3();//수정부분
 
         }
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0) 
         {
+            timer += Time.deltaTime;//수정 시작
+
+            if (timer > waitingTime)
+            {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
+                timer = 0;
+            }//수정 끝
+
             vector.Set(Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z);
             if (vector.x == 1)
             {
@@ -51,9 +67,8 @@ public class Player_Move : Stats
 
             }
 
+
         }
 
     }
-
-    
 }
