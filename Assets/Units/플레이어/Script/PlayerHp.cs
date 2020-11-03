@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class PlayerHp : PlayerStats
 {
     [SerializeField]
-    private Slider hpbar;
-    GameObject tempobj = null;
+    private Slider hpbar= null;
 
     void Start()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Move : Stats
+public class Player_Move : MonoBehaviour 
 {
     float timer; //수정
     float waitingTime; //수정
@@ -10,6 +10,7 @@ public class Player_Move : Stats
     public Animator animator;
     private SpriteRenderer sprite;
     private float cooltime_attack = 0;
+    PlayerStats player_stat =null;
     
     // Start is called before the first frame update
     void Start()
@@ -17,15 +18,16 @@ public class Player_Move : Stats
        
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+       player_stat = GetComponent<PlayerStats>();
 
         timer = 0.0f; //수정
         waitingTime = 0.3f; //수정
     }
 
     // Update is called once per frame
+	Vector3 vector = new Vector3();
     void Update()
     {
-
 
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
         animator.SetBool("isWalk", false);
@@ -45,7 +47,7 @@ public class Player_Move : Stats
 
             if (timer > waitingTime)
             {
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
+                //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
                 timer = 0;
             }//수정 끝
 
@@ -54,7 +56,7 @@ public class Player_Move : Stats
             {
                 animator.SetBool("isWalk", true);
                 sprite.flipX = false;
-                transform.Translate(vector.x * speed, 0, 0);
+                transform.Translate(vector.x * player_stat .speed, 0, 0);
 
 
             }
@@ -62,7 +64,7 @@ public class Player_Move : Stats
             {
                 animator.SetBool("isWalk", true);
                 sprite.flipX = true;
-                transform.Translate(vector.x * speed, 0, 0);
+                transform.Translate(vector.x * player_stat .speed, 0, 0);
 
 
             }
