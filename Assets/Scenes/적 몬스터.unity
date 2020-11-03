@@ -851,6 +851,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palyer: {fileID: 0}
+--- !u!114 &2010168279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010168277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c65c540ccf83244ac19b85fb6294d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curState: 0
+  traceDist: 15
+  attackDist: 2
 --- !u!1001 &9007687682501288628
 PrefabInstance:
   m_ObjectHideFlags: 0
