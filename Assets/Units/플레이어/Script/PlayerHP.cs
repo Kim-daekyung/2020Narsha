@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHP : PlayerStats
+public class PlayerUI : PlayerStats
 {
     private Image content;
     public float lerpSpeed;

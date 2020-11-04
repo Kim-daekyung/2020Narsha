@@ -561,14 +561,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981a596c77b5563469386cdfe58d828d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhp: 10
-  curhp: 10
+  maxhp: 100
+  curhp: 100
   Def: 0
   maxstemana: 0
   curstemana: 0
   attackpower: 0
   speed: 0
-  lerpSpeed: 0
+  lerpSpeed: 1
 --- !u!4 &380543562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2248782640894007161, guid: 3df669eece153444face589b9a4b1baa,
@@ -1023,7 +1023,7 @@ RectTransform:
   m_GameObject: {fileID: 904620630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 8, z: 1}
+  m_LocalScale: {x: 1.5292968, y: 3.306148, z: 0.66}
   m_Children:
   - {fileID: 1912384739}
   m_Father: {fileID: 1841281884}
@@ -1031,7 +1031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430, y: 293}
+  m_AnchoredPosition: {x: -479.53, y: 323.76}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &904620632
@@ -1763,8 +1763,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818664629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 74.842, y: 571.47, z: 0}
+  m_LocalScale: {x: 0.7646484, y: 0.4132685, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1896,7 +1896,7 @@ RectTransform:
   m_GameObject: {fileID: 1903811798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 8, z: 0.6666667}
+  m_LocalScale: {x: 1.5483443, y: 3.306148, z: 0.6666667}
   m_Children:
   - {fileID: 355591774}
   m_Father: {fileID: 1841281884}
@@ -1904,7 +1904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -331.9, y: 296}
+  m_AnchoredPosition: {x: -478, y: 325}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903811800
@@ -1957,6 +1957,7 @@ GameObject:
   - component: {fileID: 1912384742}
   - component: {fileID: 1912384741}
   - component: {fileID: 1912384740}
+  - component: {fileID: 1912384743}
   m_Layer: 5
   m_Name: "\uC2A4\uD14C\uB9C8\uB098"
   m_TagString: Untagged
@@ -2072,6 +2073,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1912384743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912384738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10d9496f91c6f245aa4b40a04a80406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhp: 0
+  curhp: 0
+  Def: 0
+  maxstemana: 100
+  curstemana: 100
+  attackpower: 0
+  speed: 0
+  lerpSpeed: 1
 --- !u!1 &1926063083
 GameObject:
   m_ObjectHideFlags: 0
