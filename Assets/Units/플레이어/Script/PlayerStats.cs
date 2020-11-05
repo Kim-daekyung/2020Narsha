@@ -11,7 +11,9 @@ public class PlayerStats : Stats
         curhp = 100;//기본적인 체력 변수
         curstemana = 100;//현재 스테마나 변수
         maxstemana = 100;//최대 스테마나 변수
-    } 
+        Def=100;//방어력 변수
+        attackpower = 100;//공격력변수
+} 
 
     // Update is called once per frame
     void Update()
