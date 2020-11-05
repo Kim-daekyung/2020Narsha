@@ -1,79 +1,68 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class TrackingPlayer : MonoBehaviour
 {
-    public enum CurrentState
-    {
-        idle,
-        trace,
-        attack,
-        dead
-    };
-
-    public CurrentState curState = CurrentState.idle;
-
-    private Transform _transform;
-    private Transform playerTransform;
-    private NavMeshAgent nvAgent;
-
-    public float traceDist = 100.0f;
-    public float attackDist = 50.0f;
-
-    private bool isDead = false;
+    public float movePower = 20.0f;
+    private SpriteRenderer renderer;
+    private Vector3 movement;
+    public int movementFlag;
+    private Animator animator;
 
     private void Start()
     {
-        _transform = this.GetComponent<Transform>();
-        playerTransform = GameObject.Find("플레이어").GetComponent<Transform>();
-        nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
+        renderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
-        StartCoroutine(this.CheckState());
-        StartCoroutine(this.CheckStateForAction());
+        StartCoroutine("ChangeMovement");
     }
 
-    private IEnumerator CheckState()
+    private void FixedUpdate()
     {
-        while (!isDead)
-        {
-            yield return new WaitForSeconds(0.2f);
-
-            float dist = Vector3.Distance(playerTransform.position, _transform.position);
-
-            if (dist <= attackDist)
-            {
-                curState = CurrentState.attack;
-            }
-            else if (dist <= traceDist)
-            {
-                curState = CurrentState.trace;
-            }
-            else
-            {
-                curState = CurrentState.idle;
-            }
-
-            Debug.Log(curState);
-        }
+        Move();
     }
 
-    private IEnumerator CheckStateForAction()
+    private IEnumerator ChangeMovement()
     {
-        while (!isDead)
+        movementFlag = Random.Range(0, 3);
+
+        if (movementFlag == 0)
         {
-            switch (curState)
-            {
-                case CurrentState.idle:
-                    break;
-
-                case CurrentState.trace:
-                    break;
-
-                case CurrentState.attack:
-                    break;
-            }
-            yield return null;
+            animator.SetBool("isMoving", false);
         }
+        else
+        {
+            animator.SetBool("isMoving", true);
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        StartCoroutine("ChangeMovement");
+    }
+
+    private void Move()
+    {
+        Vector3 moveVelocity = Vector3.zero;
+
+        if (movementFlag == 1)
+        {
+            moveVelocity = Vector3.left;
+            transform.localScale = new Vector3(-0.16f, 0.16f, 1);
+            animator.SetBool("isMoving", true);
+            animator.SetInteger("Direction", 1);
+        }
+        else if (movementFlag == 2)
+        {
+            moveVelocity = Vector3.right;
+            transform.localScale = new Vector3(0.16f, 0.16f, 1);
+            animator.SetBool("isMoving", true);
+            animator.SetInteger("Derection", -1);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+
+        transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 }
