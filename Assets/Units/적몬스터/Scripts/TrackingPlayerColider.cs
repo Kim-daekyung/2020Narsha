@@ -7,7 +7,7 @@ public class TrackingPlayerColider : MonoBehaviour
     private bool isTracing = false;
     private Animator animator;
     private int movementFlag = 0;
-    public float movePower = 5.0f;
+    public float movePower = 35.0f;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,14 +28,16 @@ public class TrackingPlayerColider : MonoBehaviour
 
         if (isTracing)
         {
-            Vector3 playerPos = traceTarget.transform.position;
+            Vector3 playerPos = GameObject.Find("플레이어").transform.position;
 
-            if (playerPos.x < transform.position.x)
+            if (playerPos.x <= transform.position.x)
             {
+                Debug.Log("Left");
                 dist = "Left";
             }
             else if (playerPos.x > transform.position.x)
             {
+                Debug.Log("Right");
                 dist = "Right";
             }
         }
@@ -71,7 +73,7 @@ public class TrackingPlayerColider : MonoBehaviour
 
     private IEnumerator ChangeMovement()
     {
-        movementFlag = Random.Range(0, 3);
+        movementFlag = Random.Range(0, 2);
 
         if (movementFlag == 0)
         {
@@ -82,7 +84,7 @@ public class TrackingPlayerColider : MonoBehaviour
             animator.SetBool("isMoving", true);
         }
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine("ChangeMovement");
     }
@@ -102,16 +104,9 @@ public class TrackingPlayerColider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if ((int)collision.gameObject.transform.position.x - (int)transform.position.x < 10)
-            {
-                isTracing = false;
-                animator.SetBool("isMoving", false);
-            }
-            else
-            {
-                isTracing = true;
-                animator.SetBool("isMoving", true);
-            }
+            isTracing = true;
+            animator.SetBool("isMoving", true);
+            Debug.Log("isMoving true");
         }
     }
 

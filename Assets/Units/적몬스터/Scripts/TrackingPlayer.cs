@@ -24,7 +24,7 @@ public class TrackingPlayer : MonoBehaviour
 
     private IEnumerator ChangeMovement()
     {
-        movementFlag = Random.Range(0, 3);
+        movementFlag = Random.Range(0, 2);
 
         if (movementFlag == 0)
         {
