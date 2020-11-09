@@ -8,6 +8,7 @@ public class TrackingPlayerColider : MonoBehaviour
     private bool isTracing = false;
     private Animator animator;
     private int movementFlag = 0;
+    public bool isEnter = false;
     public float movePower = 35.0f;
 
     // Start is called before the first frame update
@@ -34,12 +35,10 @@ public class TrackingPlayerColider : MonoBehaviour
 
             if (playerPos.x <= mobObject.transform.position.x)
             {
-                Debug.Log("Left");
                 dist = "Left";
             }
             else if (playerPos.x > mobObject.transform.position.x)
             {
-                Debug.Log("Right");
                 dist = "Right";
             }
         }
@@ -95,10 +94,16 @@ public class TrackingPlayerColider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            traceTarget = collision.gameObject;
-            Debug.Log("범위 들어옴");
+            if (!isEnter)
+            {
+                traceTarget = collision.gameObject;
+                isEnter = true;
 
-            StopCoroutine("ChangeMovement");
+                StopCoroutine("ChangeMovement");
+            }
+            else
+            {
+            }
         }
     }
 
@@ -108,7 +113,6 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             isTracing = true;
             animator.SetBool("isMoving", true);
-            Debug.Log("isMoving true");
         }
     }
 
@@ -117,6 +121,7 @@ public class TrackingPlayerColider : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isTracing = false;
+            isEnter = false;
             animator.SetBool("isMoving", false);
 
             StartCoroutine("ChangeMovement");
