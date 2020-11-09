@@ -7,12 +7,14 @@ public class PlayerMove : MonoBehaviour
 {
     float timer; //수정
     float waitingTime; //수정
-    public GameManager Manager;     //GameManager를 참조
     public Animator animator;
     private SpriteRenderer sprite;
     private float cooltime_attack = 0;
-    GameObject ScanObject = null;   //오브젝트를 스캔
     PlayerStats player_stat = null;
+
+    //대화창을 위한 변수
+    public GameManager Manager;     //GameManager를 참조
+    GameObject ScanObject = null;   //오브젝트를 스캔
     public Rigidbody2D rigid;       //rigid를 이용한 물리적 움직임 제어
     protected Vector3 dirVec;       //Ray 생성을 위해 선언
 
@@ -82,14 +84,14 @@ public class PlayerMove : MonoBehaviour
             }//수정 끝
 
             vector.Set(Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z);
-            if (vector.x == 1 && Manager.isAction == false)
+            if (vector.x == 1 && Manager.isAction == false)         //Manager.isAction == false, 대화창이 열였을 때는 움직임을 멈춘다 
             {
                 animator.SetBool("isWalk", true);
                 sprite.flipX = false;
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
                 dirVec = Vector3.right; //dirVec의 값을 right로 지정
             }
-            else if (vector.x == -1 && Manager.isAction == false)
+            else if (vector.x == -1 && Manager.isAction == false)   //Manager.isAction == false, 대화창이 열였을 때는 움직임을 멈춘다 
             {
                 animator.SetBool("isWalk", true);
                 sprite.flipX = true;

@@ -10,13 +10,21 @@ public class GameManager : MonoBehaviour
     public GameObject TalkPanel;        //대화창
     public GameObject NamePanel;        //대화창 이름 표시
     //public QuestManager questManager;
-    public Text TalkText;               //대화 텍스트
+    //public Text TalkText;             //대화 텍스트
+    public TypeEffect text;             //대화 텍스트 이펙트
     public Text NameText;               //이름 텍스트
     public GameObject ScanObject;       //게임 오브젝트 스캔
-    public bool isAction = false;       //대화창을 열었는가
-    public int talkIndex;
-    public int nameIndex;
 
+    public bool isAction = false;       //대화창을 열었는가
+    public int talkIndex;               //대화 인덱스
+    public int nameIndex;               //이름 인덱스
+
+    public void Start()
+    {
+        TalkPanel.SetActive(false);
+        NamePanel.SetActive(false);
+    }
+    
     public void Action(GameObject scanObject)
     {
         ScanObject = scanObject;
@@ -49,11 +57,13 @@ public class GameManager : MonoBehaviour
 
         if (isNpc)
         {
-            TalkText.text = talkData;
+            //TalkText.text = talkData;
+            text.SetMessage(talkData);
         }
         else
         {
-            TalkText.text = talkData;
+            //TalkText.text = talkData;
+            text.SetMessage(talkData);
         }
 
         isAction = true;
