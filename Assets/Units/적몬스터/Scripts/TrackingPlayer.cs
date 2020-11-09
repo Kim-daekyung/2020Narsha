@@ -56,7 +56,7 @@ public class TrackingPlayer : MonoBehaviour
             moveVelocity = Vector3.right;
             transform.localScale = new Vector3(0.16f, 0.16f, 1);
             animator.SetBool("isMoving", true);
-            animator.SetInteger("Derection", -1);
+            animator.SetInteger("Direction", -1);
         }
         else
         {
