@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip hyogwaum5; //step
     AudioSource myAudio5;  
     
-    public AudioClip hyogwaum6; //
+    public AudioClip hyogwaum6; //menu negative
     AudioSource myAudio6;
 
     
@@ -57,7 +57,7 @@ public class SoundManager : MonoBehaviour
     {
         myAudio.PlayOneShot(hyogwaum5);
     }    
-    public void PlaySound6() //
+    public void PlaySound6() //menu negative
     {
         myAudio.PlayOneShot(hyogwaum6);
     }
