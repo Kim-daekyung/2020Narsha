@@ -314,8 +314,8 @@ GameObject:
   - component: {fileID: 140064934}
   - component: {fileID: 140064933}
   - component: {fileID: 140064939}
-  - component: {fileID: 140064937}
   - component: {fileID: 140064938}
+  - component: {fileID: 140064937}
   m_Layer: 0
   m_Name: "\uC801 \uBAAC\uC2A4\uD130"
   m_TagString: Untagged
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d41d3537b5a9e46a3dc370338df562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePower: 5
+  movePower: 35
 --- !u!58 &140064939
 CircleCollider2D:
   m_ObjectHideFlags: 0
