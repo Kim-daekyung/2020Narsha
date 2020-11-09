@@ -18,4 +18,16 @@ public class NameManager : MonoBehaviour
         NameData.Add(2000, new string[] { "기사단원" });
         NameData.Add(100, new string[] { "책상" });
     }
+
+    public string GetName(int id, int nameIndex)
+    {
+        if (nameIndex == NameData[id].Length)
+        {
+            return null;
+        }
+        else
+        {
+            return NameData[id][nameIndex]; //오류
+        }
+    }
 }
