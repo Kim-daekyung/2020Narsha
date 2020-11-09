@@ -348,7 +348,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hyogwaum: {fileID: 8300000, guid: eb4721a13e25763448376efbf35f54fd, type: 3}
   hyogwaum2: {fileID: 8300000, guid: 5ef7dc5c5d2d78f4c931d25f9942ca48, type: 3}
-  hyogwaum3: {fileID: 8300000, guid: 6b30b64d43c74ee4e873be35210694f7, type: 3}
+  hyogwaum3: {fileID: 8300000, guid: e68df13910baa1944a2108e7f0f34a89, type: 3}
+  hyogwaum4: {fileID: 8300000, guid: 319d4caa6bd00574691fd1a054d567ab, type: 3}
+  hyogwaum5: {fileID: 8300000, guid: 781eeee7b9e80a345900d2f9574461b9, type: 3}
+  hyogwaum6: {fileID: 8300000, guid: 2b8e6f8459ef53448bbf75e202041ff4, type: 3}
 --- !u!82 &246037301
 AudioSource:
   m_ObjectHideFlags: 0
