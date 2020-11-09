@@ -4,6 +4,7 @@ using UnityEngine;
 public class TrackingPlayerColider : MonoBehaviour
 {
     private GameObject traceTarget;
+    private GameObject mobObject;
     private bool isTracing = false;
     private Animator animator;
     private int movementFlag = 0;
@@ -12,7 +13,8 @@ public class TrackingPlayerColider : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        mobObject = GameObject.Find("적몬스터");
+        animator = mobObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,12 +32,12 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             Vector3 playerPos = GameObject.Find("플레이어").transform.position;
 
-            if (playerPos.x <= transform.position.x)
+            if (playerPos.x <= mobObject.transform.position.x)
             {
                 Debug.Log("Left");
                 dist = "Left";
             }
-            else if (playerPos.x > transform.position.x)
+            else if (playerPos.x > mobObject.transform.position.x)
             {
                 Debug.Log("Right");
                 dist = "Right";
@@ -56,19 +58,19 @@ public class TrackingPlayerColider : MonoBehaviour
         if (dist == "Left")
         {
             moveVelocity = Vector3.left;
-            transform.localScale = new Vector3(-0.16f, 0.16f, 1);
+            mobObject.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             animator.SetBool("isMoving", true);
             animator.SetInteger("Direction", 1);
         }
         else if (dist == "Right")
         {
             moveVelocity = Vector3.right;
-            transform.localScale = new Vector3(0.16f, 0.16f, 1);
+            mobObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             animator.SetBool("isMoving", true);
             animator.SetInteger("Direction", -1);
         }
 
-        transform.position += moveVelocity * movePower * Time.deltaTime;
+        mobObject.transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 
     private IEnumerator ChangeMovement()
