@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Player_Move : MonoBehaviour 
@@ -9,7 +10,7 @@ public class Player_Move : MonoBehaviour
 
     public Animator animator;
     private SpriteRenderer sprite;
-    private float cooltime_attack = 0;
+    public float cooltime_attack = 0;
     PlayerStats player_stat =null;
     
     // Start is called before the first frame update
@@ -30,17 +31,24 @@ public class Player_Move : MonoBehaviour
     {
 
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
-        animator.SetBool("isWalk", false);
+            
+        
 
-
-        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0)
+        string film_name = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+        switch (film_name)
         {
-            animator.SetBool("Attack", true);
-            cooltime_attack = 1;
-            if (Input.GetAxisRaw("Horizontal") == 0)
-                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound3();//수정부분
-
+            case "player_Idle":
+            case "player_run_right":
+                if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && !animator.GetBool("Attack"))
+                {
+                    cooltime_attack = 0;    
+                    animator.SetBool("Attack", true);
+                    Debug.Log("A1 True");
+                }
+                break;
         }
+        
+
         if (Input.GetAxisRaw("Horizontal") != 0) 
         {
             timer += Time.deltaTime;//수정 시작
@@ -68,9 +76,11 @@ public class Player_Move : MonoBehaviour
 
 
             }
+            
 
 
         }
+        else animator.SetBool("isWalk", false);
 
     }
 }
