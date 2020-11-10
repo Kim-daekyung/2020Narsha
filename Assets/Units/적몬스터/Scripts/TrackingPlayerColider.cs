@@ -8,7 +8,6 @@ public class TrackingPlayerColider : MonoBehaviour
     private bool isTracing = false;
     private Animator animator;
     private int movementFlag = 0;
-    public bool isEnter = false;
     public float movePower = 35.0f;
 
     // Start is called before the first frame update
@@ -94,16 +93,9 @@ public class TrackingPlayerColider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (!isEnter)
-            {
-                traceTarget = collision.gameObject;
-                isEnter = true;
+            traceTarget = collision.gameObject;
 
-                StopCoroutine("ChangeMovement");
-            }
-            else
-            {
-            }
+            StopCoroutine("ChangeMovement");
         }
     }
 
@@ -121,7 +113,6 @@ public class TrackingPlayerColider : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isTracing = false;
-            isEnter = false;
             animator.SetBool("isMoving", false);
 
             StartCoroutine("ChangeMovement");

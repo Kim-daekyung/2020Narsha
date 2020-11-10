@@ -13,12 +13,10 @@ public class MonsterMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("충될 시작 " + collision.ToString());
         player_stat.curhp -= 10;
     }
 
     private void OnTriggerStay(Collider collision)
     {
-        Debug.Log("충돌 중 " + collision.ToString());
     }
 }
