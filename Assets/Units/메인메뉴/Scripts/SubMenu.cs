@@ -1,13 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SubMenu : MonoBehaviour
 {
+    public Slider SVolume;
+    public AudioSource audio;
+
     public GameObject GsubMenu;
+
+    private float SVol = 1f;
+
+    private void Start()
+    {
+        SVol = PlayerPrefs.GetFloat("SVol", 1f);
+        SVolume.value = SVol;
+        audio.volume = SVolume.value;
+    }
+
+    public void SoundSlider()
+    {
+        audio.volume = SVolume.value;
+        SVol = SVolume.value;
+        PlayerPrefs.SetFloat("SVol", SVol);
+    }
 
     void Update()
     {
+        SoundSlider();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound6();
