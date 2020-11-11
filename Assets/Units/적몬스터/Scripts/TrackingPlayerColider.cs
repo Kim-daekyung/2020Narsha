@@ -1,4 +1,5 @@
-﻿using Unity.Mathematics;
+﻿using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class TrackingPlayerColider : MonoBehaviour
@@ -7,11 +8,7 @@ public class TrackingPlayerColider : MonoBehaviour
     private GameObject mobObject;
     private bool isTracing = false;
     private Animator animator;
-<<<<<<< HEAD
-    private int movementFlag = 0;
-=======
     private EmAttack emAttack;
->>>>>>> main
     public float movePower = 35.0f;
 
     // Start is called before the first frame update
@@ -19,10 +16,7 @@ public class TrackingPlayerColider : MonoBehaviour
     {
         mobObject = GameObject.Find("적몬스터");
         animator = mobObject.GetComponent<Animator>();
-<<<<<<< HEAD
-=======
         emAttack = GameObject.Find("적몬스터").GetComponent<EmAttack>();
->>>>>>> main
     }
 
     // Update is called once per frame
@@ -40,15 +34,12 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             Vector3 playerPos = GameObject.Find("플레이어").transform.position;
 
-<<<<<<< HEAD
-=======
             if (math.abs(playerPos.x - mobObject.transform.position.x) < 20)
             {
                 animator.SetBool("isMoving", false);
                 return;
             }
 
->>>>>>> main
             if (playerPos.x <= mobObject.transform.position.x)
             {
                 dist = "Left";
@@ -77,32 +68,6 @@ public class TrackingPlayerColider : MonoBehaviour
             animator.SetBool("isMoving", true);
             animator.SetInteger("Direction", -1);
         }
-<<<<<<< HEAD
-
-        mobObject.transform.position += moveVelocity * movePower * Time.deltaTime;
-    }
-
-    private IEnumerator ChangeMovement()
-    {
-        movementFlag = Random.Range(0, 2);
-
-        if (movementFlag == 0)
-=======
-        else if (dist == "idle")
->>>>>>> main
-        {
-            animator.SetBool("isMoving", false);
-            return;
-        }
-<<<<<<< HEAD
-        else
-        {
-            animator.SetBool("isMoving", true);
-        }
-
-        yield return new WaitForSeconds(3f);
-=======
->>>>>>> main
 
         mobObject.transform.position += moveVelocity * movePower * Time.deltaTime;
     }
@@ -112,11 +77,8 @@ public class TrackingPlayerColider : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             traceTarget = collision.gameObject;
-<<<<<<< HEAD
 
             StopCoroutine("ChangeMovement");
-=======
->>>>>>> main
         }
     }
 
