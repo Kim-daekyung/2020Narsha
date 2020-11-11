@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Unity.Mathematics;
 using UnityEngine;
 
 public class TrackingPlayerColider : MonoBehaviour
@@ -7,7 +7,8 @@ public class TrackingPlayerColider : MonoBehaviour
     private GameObject mobObject;
     private bool isTracing = false;
     private Animator animator;
-    private int movementFlag = 0;
+
+    private EmAttack emAttack;
     public float movePower = 35.0f;
 
     // Start is called before the first frame update
@@ -15,6 +16,8 @@ public class TrackingPlayerColider : MonoBehaviour
     {
         mobObject = GameObject.Find("적몬스터");
         animator = mobObject.GetComponent<Animator>();
+
+        emAttack = GameObject.Find("적몬스터").GetComponent<EmAttack>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,13 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             Vector3 playerPos = GameObject.Find("플레이어").transform.position;
 
+
+            if (math.abs(playerPos.x - mobObject.transform.position.x) < 20)
+            {
+                animator.SetBool("isMoving", false);
+                return;
+            }
+
             if (playerPos.x <= mobObject.transform.position.x)
             {
                 dist = "Left";
@@ -43,14 +53,7 @@ public class TrackingPlayerColider : MonoBehaviour
         }
         else
         {
-            if (movementFlag == 1)
-            {
-                dist = "Left";
-            }
-            else if (movementFlag == 2)
-            {
-                dist = "Right";
-            }
+            dist = "idle";
         }
 
         if (dist == "Left")
@@ -68,25 +71,14 @@ public class TrackingPlayerColider : MonoBehaviour
             animator.SetInteger("Direction", -1);
         }
 
-        mobObject.transform.position += moveVelocity * movePower * Time.deltaTime;
-    }
-
-    private IEnumerator ChangeMovement()
-    {
-        movementFlag = Random.Range(0, 2);
-
-        if (movementFlag == 0)
+        else if (dist == "idle")
         {
             animator.SetBool("isMoving", false);
-        }
-        else
-        {
-            animator.SetBool("isMoving", true);
+            return;
         }
 
-        yield return new WaitForSeconds(3f);
 
-        StartCoroutine("ChangeMovement");
+        mobObject.transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -95,7 +87,6 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             traceTarget = collision.gameObject;
 
-            StopCoroutine("ChangeMovement");
         }
     }
 
@@ -114,8 +105,6 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             isTracing = false;
             animator.SetBool("isMoving", false);
-
-            StartCoroutine("ChangeMovement");
         }
     }
 }
