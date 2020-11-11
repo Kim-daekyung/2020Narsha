@@ -9,6 +9,8 @@ public class EmAttack : MonoBehaviour
     public float attackPower = 10.0f;
     public bool isAttack = false;
 
+
+    
     private void Start()
     {
         playerObject = GameObject.Find("플레이어");

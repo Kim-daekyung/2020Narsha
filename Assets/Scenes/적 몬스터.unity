@@ -289,6 +289,36 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9007687681130923159, guid: 080aa96270646494880a200bf21522e8,
+        type: 3}
+      propertyPath: maxhp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007687681130923159, guid: 080aa96270646494880a200bf21522e8,
+        type: 3}
+      propertyPath: curhp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007687681130923159, guid: 080aa96270646494880a200bf21522e8,
+        type: 3}
+      propertyPath: Def
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007687681130923159, guid: 080aa96270646494880a200bf21522e8,
+        type: 3}
+      propertyPath: maxstemana
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007687681130923159, guid: 080aa96270646494880a200bf21522e8,
+        type: 3}
+      propertyPath: curstemana
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007687681130923159, guid: 080aa96270646494880a200bf21522e8,
+        type: 3}
+      propertyPath: attackpower
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 080aa96270646494880a200bf21522e8, type: 3}
 --- !u!1 &250790917
@@ -1393,6 +1423,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254259590477936455, guid: dc7fc6d8da981b141a777b72787830f4,
+        type: 3}
+      propertyPath: curhp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254259590477936455, guid: dc7fc6d8da981b141a777b72787830f4,
+        type: 3}
+      propertyPath: maxhp
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7fc6d8da981b141a777b72787830f4, type: 3}

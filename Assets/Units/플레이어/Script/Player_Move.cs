@@ -15,7 +15,8 @@ public class Player_Move : MonoBehaviour
     private float cooltime_attack = 0;
 
 
-    PlayerStats player_stat =null;
+    PlayerStats player_stat = null;
+    public PlayerUI playerui;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class Player_Move : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
        player_stat = GetComponent<PlayerStats>();
-
+       //playerui= GameObject.Find("체력바").GetComponent<PlayerUI>();
+        //playerui.pstats = GetComponent<PlayerStats>();
         timer = 0.0f; //수정
         waitingTime = 0.3f; //수정
     }

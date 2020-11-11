@@ -11,5 +11,11 @@ public class Stats : MonoBehaviour
     public int curstemana;//현재 스테마나
     public int attackpower;//공격력 변수
     public float speed;//속도변수
+    
 
+    public int GiveDangme(Stats peer)
+    {
+        return peer.curhp-attackpower;  
+    }
+    
 }
