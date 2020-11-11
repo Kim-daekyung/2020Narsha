@@ -34,16 +34,17 @@ public class Player_Move : MonoBehaviour
     void Update()
     {
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
-            
-        
 
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed==2.0)//수정
+
+
+        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0)//수정
         {
-            cooltime_attack = 0.5f;    
+            cooltime_attack = 0.5f;
             animator.SetBool("Attack", true);
         }
+        else animator.SetBool("Attack", false);
 
         if (Input.GetAxisRaw("Horizontal") != 0
             && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0) //수정
@@ -53,7 +54,7 @@ public class Player_Move : MonoBehaviour
 
             if (timer > waitingTime)
             {
-                //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
                 timer = 0;
             }//수정 끝
 
