@@ -11,6 +11,11 @@ public class MonsterMove : MonoBehaviour
         player_stat = GameObject.Find("플레이어").GetComponent<PlayerStats>();
     }
 
+    private void AttackPlayer()
+    {
+        player_stat.curhp -= 10;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
