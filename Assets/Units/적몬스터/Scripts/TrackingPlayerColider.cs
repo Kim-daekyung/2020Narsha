@@ -25,6 +25,16 @@ public class TrackingPlayerColider : MonoBehaviour
         Move();
     }
 
+    public void DelayCoroutine()
+    {
+        StartCoroutine("StartDelay");
+    }
+
+    private IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+
     private void Move()
     {
         Vector3 moveVelocity = Vector3.zero;

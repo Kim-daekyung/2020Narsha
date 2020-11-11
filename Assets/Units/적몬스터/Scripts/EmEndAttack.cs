@@ -5,15 +5,10 @@ using UnityEngine;
 public class EmEndAttack : StateMachineBehaviour
 {
     private bool isAttack = false;
-    private PlayerStats playerStats = GameObject.Find("플레이어").GetComponent<PlayerStats>();
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Task task = new Task(() =>
-        {
-
-        });
         isAttack = true;
     }
 

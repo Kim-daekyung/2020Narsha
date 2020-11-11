@@ -15,7 +15,8 @@ public class Player_Move : MonoBehaviour
     private float cooltime_attack = 0;
 
 
-    PlayerStats player_stat =null;
+    PlayerStats player_stat = null;
+    public PlayerUI playerui;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class Player_Move : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
        player_stat = GetComponent<PlayerStats>();
-
+       //playerui= GameObject.Find("체력바").GetComponent<PlayerUI>();
+        //playerui.pstats = GetComponent<PlayerStats>();
         timer = 0.0f; //수정
         waitingTime = 0.3f; //수정
     }
@@ -34,16 +36,17 @@ public class Player_Move : MonoBehaviour
     void Update()
     {
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
-            
-        
 
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed==2.0)//수정
+
+
+        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0)//수정
         {
-            cooltime_attack = 0.5f;    
+            cooltime_attack = 0.5f;
             animator.SetBool("Attack", true);
         }
+        else animator.SetBool("Attack", false);
 
         if (Input.GetAxisRaw("Horizontal") != 0
             && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0) //수정
@@ -53,7 +56,7 @@ public class Player_Move : MonoBehaviour
 
             if (timer > waitingTime)
             {
-                //GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound5();
                 timer = 0;
             }//수정 끝
 

@@ -5,22 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject SMenu;
+
     public void OnClickNewGame()
     {
         Debug.Log("새 게임");
         SoundManager.instance.PlaySound2();
         StartCoroutine(DelayStart());
+        
     }
+
 
     IEnumerator DelayStart()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("맵 개발 씬");
-    }
-
-    public void OnClickLoad()
-    {
-        Debug.Log("불러오기");
+        //SceneManager.LoadScene("맵 개발 씬");
+        SMenu.gameObject.SetActive(false);
     }
 
     public void OnClickQuit()
