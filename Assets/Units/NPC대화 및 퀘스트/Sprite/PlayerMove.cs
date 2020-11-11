@@ -13,10 +13,12 @@ public class PlayerMove : MonoBehaviour
     PlayerStats player_stat = null;
 
     //대화창을 위한 변수
-    public GameManager Manager;     //GameManager를 참조
-    GameObject ScanObject = null;   //오브젝트를 스캔
+    public GameManager gameManager;     //GameManager를 참조
+    //GameObject ScanObject = null;   //오브젝트를 스캔
     public Rigidbody2D rigid;       //rigid를 이용한 물리적 움직임 제어
-    protected Vector3 dirVec;       //Ray 생성을 위해 선언
+    //public ObjectData objectData;
+    //protected Vector3 dirVec;       //Ray 생성을 위해 선언
+    public float talkTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +34,10 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        Ray();          //조사 함수
+        //Ray();          //조사 함수
     }
 
-    void Ray()  //조사 함수
+    /*void Ray()  //조사 함수
     {
         Debug.DrawRay(rigid.position, dirVec * 30.0f, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 30.0f, LayerMask.GetMask("Object"));
@@ -49,17 +51,76 @@ public class PlayerMove : MonoBehaviour
         {
             ScanObject = null;
         }
-    }
+    }*/
+
+    /*void Survey()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("This is : " + ScanObject.name);
+            gameManager.Action(ScanObject.transform.gameObject);
+        }
+        
+    }*/
 
     // Update is called once per frame
     Vector3 vector = new Vector3();
+    int talklevel = 1;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && ScanObject != null)   //space를 눌렀을 때, ScanObject가 null이 아닐 때
+
+        if (rigid.position.x > 200 * talklevel)
         {
-            Debug.Log("This is : " + ScanObject.name);
-            Manager.Action(ScanObject.transform.gameObject);    //오류
+
+            /*gameManager.NamePanel.SetActive(true);
+            gameManager.TalkPanel.SetActive(true);
+            
+            Debug.Log("over");
+            gameManager.Talk(5000, true);
+            talklevel++;*/
+
+            //on
+            gameManager.TalkPanel.SetActive(true);
+            gameManager.NamePanel.SetActive(true);
+
+            Debug.Log("on : " + gameManager.talkManager.talkList[talklevel]);
+            gameManager.systemName(5000);
+            gameManager.text.SetMessage(gameManager.talkManager.talkList[talklevel]);
+
+            talklevel++;
+
+            //N초 기다리기
+            talkTimer = 3.0f;
+
         }
+
+        if (talkTimer != 0.0f)
+        {
+            talkTimer = talkTimer - Time.deltaTime;
+            if (talkTimer < 0.1f || Input.GetKeyDown(KeyCode.Space))
+            {
+                talkTimer = 0.0f;
+
+                Debug.Log("talk off");
+
+                gameManager.TalkPanel.SetActive(false);
+                gameManager.NamePanel.SetActive(false);
+
+            }
+        }
+
+        //space
+        /*if(Input.GetKeyDown(KeyCode.Space))
+        {
+            //off
+            
+            
+        }*/
+
+        /*if (ScanObject != null)   //space를 눌렀을 때, ScanObject가 null이 아닐 때
+        {
+            Survey();
+        }*/
 
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
         animator.SetBool("isWalk", false);
@@ -84,19 +145,21 @@ public class PlayerMove : MonoBehaviour
             }//수정 끝
 
             vector.Set(Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z);
-            if (vector.x == 1 && Manager.isAction == false)         //Manager.isAction == false, 대화창이 열였을 때는 움직임을 멈춘다 
+            //if (vector.x == 1 && gameManager.isAction == false)         //Manager.isAction == false, 대화창이 열였을 때는 움직임을 멈춘다 
+            if (vector.x == 1)
             {
                 animator.SetBool("isWalk", true);
                 sprite.flipX = false;
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
-                dirVec = Vector3.right; //dirVec의 값을 right로 지정
+                //dirVec = Vector3.right; //dirVec의 값을 right로 지정
             }
-            else if (vector.x == -1 && Manager.isAction == false)   //Manager.isAction == false, 대화창이 열였을 때는 움직임을 멈춘다 
+            //else if (vector.x == -1 && gameManager.isAction == false)   //Manager.isAction == false, 대화창이 열였을 때는 움직임을 멈춘다 
+            else if (vector.x == -1)
             {
                 animator.SetBool("isWalk", true);
                 sprite.flipX = true;
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
-                dirVec = Vector3.left;  //dirVec의 값을 left로 지정
+                //dirVec = Vector3.left;  //dirVec의 값을 left로 지정
             }
         }
     }

@@ -14,9 +14,10 @@ public class NameManager : MonoBehaviour
 
     void GenerateNameData()
     {
-        NameData.Add(1000, new string[] { "주민" });
+        NameData.Add(5000, new string[] { "???" });
+        /*NameData.Add(1000, new string[] { "주민" });
         NameData.Add(2000, new string[] { "기사단원" });
-        NameData.Add(100, new string[] { "책상" });
+        NameData.Add(100, new string[] { "책상" });*/
     }
 
     public string GetName(int id, int nameIndex)

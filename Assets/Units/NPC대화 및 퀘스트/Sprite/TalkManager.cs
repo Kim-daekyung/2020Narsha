@@ -5,6 +5,7 @@ using UnityEngine;
 public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> TalkData; //대화창 데이터 저장
+    public List<string> talkList;
 
     void Awake()
     {
@@ -14,10 +15,15 @@ public class TalkManager : MonoBehaviour
 
     void GenerateTalkData() //대화창 데이터
     {
+        talkList.Add("none");   //NULL
+        talkList.Add("스테이지 1 : 안녕?");
+        talkList.Add("스테이지 2 : 이 곳에 처음 왔구나?");
+
         //talk
-        TalkData.Add(1000, new string[] { "안녕?", "이 곳에 처음 왔구나?" });
+        TalkData.Add(5000, new string[] { "기다려" });
+        /*TalkData.Add(1000, new string[] { "안녕?", "이 곳에 처음 왔구나?" });
         TalkData.Add(2000, new string[] { "잠시만...", "아직 공고 된 임무가 없어.", "나중에 다시 찾아와줘." });
-        TalkData.Add(100, new string[] { "자극히 평범한 책상이다.", "아무래도 대화창 재작자가 이 책상을 까먹었나 보다." });
+        TalkData.Add(100, new string[] { "자극히 평범한 책상이다.", "아무래도 대화창 재작자가 이 책상을 까먹었나 보다." });*/
 
         //quest
         /*TalkData.Add(10 + 1000, new string[] { "어서와.", "이 곳에 처음 왔구나?",
