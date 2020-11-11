@@ -26,8 +26,6 @@ public class EmAttack : MonoBehaviour
             isMoving = false;
             isAttack = true;
 
-            playerStat.curhp -= 10;
-            Debug.Log("공격 완료");
         }
     }
 

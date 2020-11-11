@@ -1,4 +1,5 @@
-﻿using Unity.Mathematics;
+﻿using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class TrackingPlayerColider : MonoBehaviour
@@ -7,7 +8,6 @@ public class TrackingPlayerColider : MonoBehaviour
     private GameObject mobObject;
     private bool isTracing = false;
     private Animator animator;
-
     private EmAttack emAttack;
     public float movePower = 35.0f;
 
@@ -16,7 +16,6 @@ public class TrackingPlayerColider : MonoBehaviour
     {
         mobObject = GameObject.Find("적몬스터");
         animator = mobObject.GetComponent<Animator>();
-
         emAttack = GameObject.Find("적몬스터").GetComponent<EmAttack>();
     }
 
@@ -34,7 +33,6 @@ public class TrackingPlayerColider : MonoBehaviour
         if (isTracing)
         {
             Vector3 playerPos = GameObject.Find("플레이어").transform.position;
-
 
             if (math.abs(playerPos.x - mobObject.transform.position.x) < 20)
             {
@@ -71,13 +69,6 @@ public class TrackingPlayerColider : MonoBehaviour
             animator.SetInteger("Direction", -1);
         }
 
-        else if (dist == "idle")
-        {
-            animator.SetBool("isMoving", false);
-            return;
-        }
-
-
         mobObject.transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 
@@ -87,6 +78,7 @@ public class TrackingPlayerColider : MonoBehaviour
         {
             traceTarget = collision.gameObject;
 
+            StopCoroutine("ChangeMovement");
         }
     }
 
