@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using UnityEditor.Experimental.GraphView;
-=======
+
 using System.Diagnostics;
->>>>>>> main
+
 using UnityEngine;
 
 public class Player_Move : MonoBehaviour 
@@ -13,12 +11,10 @@ public class Player_Move : MonoBehaviour
     float waitingTime; //수정
     public Animator animator;
     private SpriteRenderer sprite;
-<<<<<<< HEAD
-    public float cooltime_attack = 0;
-=======
+
     private float cooltime_attack = 0;
 
->>>>>>> main
+
     PlayerStats player_stat =null;
 
     // Start is called before the first frame update
@@ -41,33 +37,17 @@ public class Player_Move : MonoBehaviour
             
         
 
-<<<<<<< HEAD
-        string film_name = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
-        switch (film_name)
-=======
 
-        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 
-            && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed==2.0)//수정
->>>>>>> main
+
+        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed==2.0)//수정
         {
-            case "player_Idle":
-            case "player_run_right":
-                if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && !animator.GetBool("Attack"))
-                {
-                    cooltime_attack = 0;    
-                    animator.SetBool("Attack", true);
-                    Debug.Log("A1 True");
-                }
-                break;
+            cooltime_attack = 0.5f;    
+            animator.SetBool("Attack", true);
         }
-<<<<<<< HEAD
-        
 
-        if (Input.GetAxisRaw("Horizontal") != 0) 
-=======
         if (Input.GetAxisRaw("Horizontal") != 0
             && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0) //수정
->>>>>>> main
+
         {
             timer += Time.deltaTime;//수정 시작
 
