@@ -13,9 +13,8 @@ public class MonsterMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            player_stat.curhp -= 10;
-        }
+
+        player_stat.curhp -= 10;
     }
+
 }
