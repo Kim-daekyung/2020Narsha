@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager_1 : MonoBehaviour
 {
     public TalkManager talkManager;     //talkManager를 참조
     public NameManager nameManager;     //nameManager를 참조

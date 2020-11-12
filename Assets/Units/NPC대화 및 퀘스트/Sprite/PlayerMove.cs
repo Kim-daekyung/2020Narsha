@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     //public ObjectData objectData;
     //protected Vector3 dirVec;       //Ray 생성을 위해 선언
     public float talkTimer = 0.0f;
+    int talklevel = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,7 @@ public class PlayerMove : MonoBehaviour
 
     // Update is called once per frame
     Vector3 vector = new Vector3();
-    int talklevel = 1;
+    
     void Update()
     {
 

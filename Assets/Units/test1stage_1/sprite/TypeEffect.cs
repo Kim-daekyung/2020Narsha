@@ -49,7 +49,7 @@ public class TypeEffect : MonoBehaviour
 
         messageText.text += targetMessage[index];
 
-        if(targetMessage[index]!=' ' || targetMessage[index] != '.')
+        if (targetMessage[index] != ' ' || targetMessage[index] != '.')
         {
             audioSource.Play();
         }
@@ -58,7 +58,7 @@ public class TypeEffect : MonoBehaviour
 
         Invoke("Effecting", interval);
     }
-    
+
     void EffectEnd()
     {
         EndCursor.SetActive(true);

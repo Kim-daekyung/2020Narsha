@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TalkManager : MonoBehaviour
+public class TalkManager_1 : MonoBehaviour
 {
     Dictionary<int, string[]> TalkData; //대화창 데이터 저장
     public List<string> talkList;
