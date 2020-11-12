@@ -1019,6 +1019,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uC801\uBAAC\uC2A4\uD130"
       objectReference: {fileID: 0}
+    - target: {fileID: 5011535794373626195, guid: b9b19d2c6d7235346a538d0456a21355,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enermy
+      objectReference: {fileID: 0}
     - target: {fileID: 5011535794373626204, guid: b9b19d2c6d7235346a538d0456a21355,
         type: 3}
       propertyPath: m_LocalPosition.x
