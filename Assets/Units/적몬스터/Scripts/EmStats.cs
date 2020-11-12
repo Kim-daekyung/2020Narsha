@@ -18,7 +18,7 @@ public class EmStats : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (curhp <= 0)
+        if (curhp <= 0||Input.GetKeyDown(KeyCode.I))
         {
             isDead = true;
 
