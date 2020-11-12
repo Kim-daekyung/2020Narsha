@@ -9,12 +9,10 @@ public class EmAttack : MonoBehaviour
     public float attackPower = 10.0f;
     public bool isAttack = false;
 
-
-    
     private void Start()
     {
-        playerObject = GameObject.Find("플레이어");
-        animator = GameObject.Find("적몬스터").GetComponent<Animator>();
+        playerObject = GameObject.FindWithTag("Player");
+        animator = transform.parent.GetComponent<Animator>();
         playerStat = playerObject.GetComponent<PlayerStats>();
     }
 
@@ -27,7 +25,6 @@ public class EmAttack : MonoBehaviour
             animator.SetBool("isMoving", false);
             isMoving = false;
             isAttack = true;
-
         }
     }
 

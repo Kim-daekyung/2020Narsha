@@ -11,6 +11,6 @@ public class EmDead : MonoBehaviour
 
     void EnermyDead()
     {
-        DestroyObject(GameObject.Find("적몬스터"));
+        DestroyObject(gameObject);
     }
 }

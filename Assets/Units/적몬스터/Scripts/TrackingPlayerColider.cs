@@ -14,9 +14,9 @@ public class TrackingPlayerColider : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        mobObject = GameObject.Find("적몬스터");
+        mobObject = transform.parent.gameObject;
         animator = mobObject.GetComponent<Animator>();
-        emAttack = GameObject.Find("적몬스터").GetComponent<EmAttack>();
+        emAttack = mobObject.GetComponent<EmAttack>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class TrackingPlayerColider : MonoBehaviour
 
         if (isTracing)
         {
-            Vector3 playerPos = GameObject.Find("플레이어").transform.position;
+            Vector3 playerPos = GameObject.FindWithTag("Player").transform.position;
 
             if (math.abs(playerPos.x - mobObject.transform.position.x) < 20)
             {
