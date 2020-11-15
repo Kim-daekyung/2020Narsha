@@ -16,6 +16,8 @@ public class MonsterMove : MonoBehaviour
     private void AttackPlayer()
     {
         player_stat.curhp -= 10;
+        player.animator.Play("player_damzing");
+        Debug.Log("데미지");
         if (player_stat.curhp <= 0)
         {
             player.animator.Play("player_death");
@@ -23,10 +25,5 @@ public class MonsterMove : MonoBehaviour
         }
     }
 
-    private Collider2D cc;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        cc = collision;
-    }
 }

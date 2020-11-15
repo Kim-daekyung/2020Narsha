@@ -17,12 +17,20 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("공격");
-        if (collision.gameObject.tag == "Enermy")
+        ccc = collision;
+    }
+    private void AttackEnermy()
+    {
+        
+        if (ccc.gameObject.tag == "Enermy")
         {
+            Debug.Log("공격");
             em_stat.curhp = -10;
         }
     }
+    private Collider2D ccc;
+
+   
 
     // Update is called once per frame
     void Update()
