@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("공격");
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Enermy")
         {
             em_stat.curhp = -10;
         }
