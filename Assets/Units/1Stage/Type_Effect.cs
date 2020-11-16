@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TypeEffect : MonoBehaviour
+public class Type_Effect : MonoBehaviour
 {
-    public int CharPerSeconds = 10;
+    public int CharPerSeconds;
     string targetMessage;
     int index;
     float interval;
