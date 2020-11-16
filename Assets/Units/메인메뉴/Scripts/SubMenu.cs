@@ -12,6 +12,7 @@ public class SubMenu : MonoBehaviour
 
     public GameObject GsubMenu;
     public GameObject DMenu;
+    public GameObject EMenu;
 
     private float SVol = 1f;
 
@@ -53,6 +54,22 @@ public class SubMenu : MonoBehaviour
         if (GameObject.Find("플레이어").GetComponent<PlayerStats>().curhp <= 0) {
             PDead();
             DMenu.gameObject.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if (EMenu.activeSelf) //창이 떠 있으면
+            {
+                EMenu.gameObject.SetActive(false);
+                PAlive();
+            } //활성화 -> 비활
+            else if (EMenu.activeSelf == false)
+            {
+                EMenu.gameObject.SetActive(true);
+                PDead();
+
+            } //비활 -> 활성화
+
         }
     }
 
