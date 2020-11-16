@@ -7,12 +7,15 @@ public class PlayerAttack : MonoBehaviour
     private EmStats em_stat = null;
     public GameObject emgo = null;
     public MonsterMove Monster = null;
+    public EmAttack Monem = null;
+    public int attack = 0;
 
     // Start is called before the first frame update
     void Start()
     {
       emgo = GameObject.FindWithTag("Enermy");
         Monster = emgo.GetComponent<MonsterMove>();
+        Monem = emgo.GetComponent<EmAttack>();
         em_stat = GameObject.FindWithTag("Enermy").GetComponent<EmStats>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,11 +25,12 @@ public class PlayerAttack : MonoBehaviour
     private void AttackEnermy()
     {
         
-        if (ccc.gameObject.tag == "Enermy")
-        {
+       
+        
+         
             Debug.Log("공격");
-            em_stat.curhp = -10;
-        }
+            attack = 1;
+        
     }
     private Collider2D ccc;
 

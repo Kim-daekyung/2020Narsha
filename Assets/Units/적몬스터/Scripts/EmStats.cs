@@ -1,19 +1,32 @@
 ﻿using UnityEngine;
 
-public class EmStats : MonoBehaviour
+public class EmStats :Stats
 {
-    public int maxhp = 100;//최대 체력 변수
-    public int curhp = 100;//현재 체력 변수
-    public float Def = 100;//방어력 변수
-    public int maxstemana = 0;//최대스테마나(플레이어가 방어 했을때 일저량 감소)
-    public int curstemana = 0;//현재 스테마나
-    public int attackpower = 10;//공격력 변수
+     
     private bool isDead = false;
     private Animator animator;
+    public PlayerAttack pattack=null;
 
+    public void Awake()
+    {
+        maxhp = 100;//최대 체력 변수
+        curhp = 100;//현재 체력 변수
+        Def = 100;//방어력 변수
+        maxstemana = 0;//최대스테마나(플레이어가 방어 했을때 일저량 감소)
+        curstemana = 0;//현재 스테마나
+        attackpower = 10;//공격력 변수
+    }
     private void Start()
     {
+        pattack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
+    }
+    public void Update()
+    {
+        if (pattack.attack == 1)
+        {
+            curhp -= 10;
+        }
     }
 
     private void FixedUpdate()

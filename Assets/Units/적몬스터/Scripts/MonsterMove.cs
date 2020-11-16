@@ -17,6 +17,7 @@ public class MonsterMove : MonoBehaviour
     {
         player_stat.curhp -= 10;
         player.animator.Play("player_damzing");
+        
         Debug.Log("데미지");
         if (player_stat.curhp <= 0)
         {
