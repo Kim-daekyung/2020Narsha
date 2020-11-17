@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PullEffect : MonoBehaviour
 {
+    public SpriteRenderer spt = null;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spt = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void ONEffect()
+    {
+        this.gameObject.SetActive(true);
+    }
+    public void OFFEffect()
+    {
+        this.gameObject.SetActive(false);
     }
 }

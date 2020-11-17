@@ -24,6 +24,7 @@ public class Player_Move : MonoBehaviour
     public float talkTimer = 0.0f;
     int talklevel = 1;
     public PullEffect pulleffect = null;
+    
 
     float ctimer = 0.0f;
 
@@ -31,7 +32,7 @@ public class Player_Move : MonoBehaviour
     void Start()
     {
         rigid = this.GetComponent<Rigidbody2D>();   //Rigidbody2D를 참조
-        pulleffect = gameObject.GetComponent<PullEffect>();
+        pulleffect = GameObject.Find("pullEffect").GetComponent<PullEffect>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_stat = GetComponent<PlayerStats>();
@@ -84,14 +85,14 @@ public class Player_Move : MonoBehaviour
             ctimer += Time.deltaTime;
             if (ctimer > 0.5f)
             {
-                pulleffect.gameObject.SetActive(true);
+                pulleffect.ONEffect();
             }
         }
         if (Input.GetKeyUp(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0)//수정
         {
             if (ctimer > 0.5f)
             {
-                pulleffect.gameObject.SetActive(false);
+                pulleffect.OFFEffect();
                 animator.SetTrigger("PullAttack");
             }
             else
