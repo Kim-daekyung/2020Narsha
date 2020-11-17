@@ -3,6 +3,7 @@
 public class PlayerAttack : MonoBehaviour
 {
     private EmStats em_stat = null;
+    private Animator animator = null;
     public GameObject emgo = null;
     public MonsterMove Monster = null;
     public EmAttack Monem = null;
@@ -14,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
         emgo = GameObject.FindWithTag("Enermy");
         Monster = emgo.GetComponent<MonsterMove>();
         em_stat = emgo.GetComponent<EmStats>();
+        animator = emgo.GetComponent<Animator>();
     }
 
     //    private void OnTriggerStay2D(Collider2D collision)
@@ -28,5 +30,7 @@ public class PlayerAttack : MonoBehaviour
     public void AttackEnermy()
     {
         em_stat.curhp -= 10;
+//        animator.SetTrigger("monster_dam");
+        animator.Play("monster_dam");
     }
 }
