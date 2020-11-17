@@ -9,6 +9,7 @@ public class EmDead : MonoBehaviour
         emStats = GetComponent<EmStats>();
     }
 
+    [System.Obsolete]
     void EnermyDead()
     {
         DestroyObject(gameObject);
