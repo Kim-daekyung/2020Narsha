@@ -33,4 +33,14 @@ public class PlayerAttack : MonoBehaviour
 //        animator.SetTrigger("monster_dam");
         animator.Play("monster_dam");
     }
+    public void AttackEnermy2()
+    {
+        em_stat.curhp -= 20;
+        animator.Play("monster_dam");
+    }
+    public void PullAttackEnermy()
+    {
+        em_stat.curhp -= 30;
+        animator.Play("monster_dam");
+    }
 }
