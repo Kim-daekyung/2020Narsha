@@ -120,4 +120,15 @@ public class Player_Move : MonoBehaviour
     {
         //em_stat.curhp -= 10;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Stage1Wall"
+            && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 1
+            && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s1e <= 0)
+        {
+            GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage = 2;
+            //좌표 이동 구현 필요
+        }
+    }
 }
