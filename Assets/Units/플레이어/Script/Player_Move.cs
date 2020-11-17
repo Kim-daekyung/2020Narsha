@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using System.Diagnostics;
-
 using UnityEngine;
+
+
 
 public class Player_Move : MonoBehaviour 
 {
+    
     float timer; //수정
     float waitingTime; //수정
     public Animator animator;
@@ -22,15 +23,19 @@ public class Player_Move : MonoBehaviour
 
     public float talkTimer = 0.0f;
     int talklevel = 1;
+    public PullEffect pulleffect = null;
+
+    float ctimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = this.GetComponent<Rigidbody2D>();   //Rigidbody2D를 참조
-
+        pulleffect = gameObject.GetComponent<PullEffect>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_stat = GetComponent<PlayerStats>();
+        
         //playerui= GameObject.Find("체력바").GetComponent<PlayerUI>();
         //playerui.pstats = GetComponent<PlayerStats>();
         timer = 0.0f; //수정
@@ -71,11 +76,30 @@ public class Player_Move : MonoBehaviour
         }
 
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0)//수정
+        if (Input.GetKeyDown(KeyCode.Q)){
+            ctimer = 0.0f;
+        }
+        if (Input.GetKey(KeyCode.Q))
         {
-            cooltime_attack = 0.5f;
-            animator.SetBool("Attack", true);
+            ctimer += Time.deltaTime;
+            if (ctimer > 0.5f)
+            {
+                pulleffect.gameObject.SetActive(true);
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0)//수정
+        {
+            if (ctimer > 0.5f)
+            {
+                pulleffect.gameObject.SetActive(false);
+                animator.SetTrigger("PullAttack");
+            }
+            else
+            {
+                
+                cooltime_attack = 0.5f;
+                animator.SetBool("Attack", true);
+            }
         }
         else animator.SetBool("Attack", false);
 
