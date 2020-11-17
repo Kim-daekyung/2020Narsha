@@ -47,7 +47,7 @@ public class Player_Move : MonoBehaviour
 	Vector3 vector = new Vector3();
     void Update()
     {
-        if (rigid.position.x > 500 * talklevel)
+        /*if (rigid.position.x > 500 * talklevel)
         {
             //on
             gameManager.TalkPanel.SetActive(true);
@@ -61,7 +61,7 @@ public class Player_Move : MonoBehaviour
             //N초 기다리기
             talkTimer = 3.0f;
 
-        }
+        }*/
 
         if (talkTimer != 0.0f)
         {
@@ -155,8 +155,9 @@ public class Player_Move : MonoBehaviour
         {
             GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage = 2;
             //좌표 이동 구현 필요
+            gameObject.transform.position = new Vector2(566, -10);
         }
     }
 
-    }
+}
 

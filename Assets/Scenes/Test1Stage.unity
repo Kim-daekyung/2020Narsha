@@ -1203,7 +1203,12 @@ PrefabInstance:
     - target: {fileID: 5254259589279263357, guid: dc7fc6d8da981b141a777b72787830f4,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: "\uCCB4\uB825, \uC2A4\uD14C\uBBF8\uB108"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254259589279263357, guid: dc7fc6d8da981b141a777b72787830f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7fc6d8da981b141a777b72787830f4, type: 3}
@@ -4434,7 +4439,7 @@ PrefabInstance:
     - target: {fileID: 5011535794373626195, guid: b9b19d2c6d7235346a538d0456a21355,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5011535794373626201, guid: b9b19d2c6d7235346a538d0456a21355,
         type: 3}
@@ -4729,7 +4734,7 @@ GameObject:
   - component: {fileID: 821287986}
   - component: {fileID: 821287985}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: "\uB300\uD654\uCC3D"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5812,6 +5817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097888207888617307, guid: 3b26cb2317855e5419f4b00c60bb63e8,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b26cb2317855e5419f4b00c60bb63e8, type: 3}
@@ -11618,7 +11628,7 @@ PrefabInstance:
     - target: {fileID: 5011535794373626195, guid: b9b19d2c6d7235346a538d0456a21355,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5011535794373626201, guid: b9b19d2c6d7235346a538d0456a21355,
         type: 3}
