@@ -115,4 +115,9 @@ public class Player_Move : MonoBehaviour
         else animator.SetBool("isWalk", false);
 
     }
+
+    void AttackEnermy2()
+    {
+        //em_stat.curhp -= 10;
+    }
 }

@@ -21,13 +21,7 @@ public class EmStats :Stats
         pattack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
     }
-    public void Update()
-    {
-        if (pattack.attack == 1)
-        {
-            curhp -= 10;
-        }
-    }
+ 
 
     private void FixedUpdate()
     {

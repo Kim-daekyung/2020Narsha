@@ -13,25 +13,22 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      emgo = GameObject.FindWithTag("Enermy");
+        emgo = GameObject.FindWithTag("Enermy");
         Monster = emgo.GetComponent<MonsterMove>();
-        Monem = emgo.GetComponent<EmAttack>();
         em_stat = GameObject.FindWithTag("Enermy").GetComponent<EmStats>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        ccc = collision;
+        if (collision.gameObject.tag == "Enermy")
+        {
+            AttackEnermy();
+        }
     }
-    private void AttackEnermy()
+    public void AttackEnermy()
     {
-        
-       
-        
-         
-            Debug.Log("공격");
-            attack = 1;
-        
+        em_stat.curhp -= 10;
     }
+
     private Collider2D ccc;
 
    
