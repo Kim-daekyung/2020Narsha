@@ -16,9 +16,8 @@ public class EmAttack : MonoBehaviour
         playerStat = playerObject.GetComponent<PlayerStats>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("굥격 범위 들어옴");
         if (collision.gameObject.tag == "Player")
         {
             animator.SetBool("isAttack", true);
