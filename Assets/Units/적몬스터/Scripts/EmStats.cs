@@ -21,15 +21,17 @@ public class EmStats :Stats
         pattack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
     }
- 
 
     private void FixedUpdate()
     {
         if (curhp <= 0||Input.GetKeyDown(KeyCode.I))
         {
+
             isDead = true;
 
             animator.SetBool("isDead", true);
+
+
         }
     }
 }

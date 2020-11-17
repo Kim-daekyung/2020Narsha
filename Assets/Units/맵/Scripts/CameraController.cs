@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour
     //public float left_limit_s2 = 0; //수정
     //public float right_limit_s2 = 0; //수정
 
+    //public float left_limit_s3 = 650; //수정
+    //public float right_limit_s3 = 948; //수정
 
     //// Start is called before the first frame update
     //void Start()
