@@ -2,10 +2,9 @@
 
 public class EmStats :Stats
 {
-     
     private bool isDead = false;
     private Animator animator;
-    public PlayerAttack pattack=null;
+    public PlayerAttack pattack = null;
 
     public void Awake()
     {
@@ -24,7 +23,7 @@ public class EmStats :Stats
 
     private void FixedUpdate()
     {
-        if (curhp <= 0||Input.GetKeyDown(KeyCode.I))
+        if (curhp <= 0 || Input.GetKeyDown(KeyCode.I))
         {
 
             isDead = true;

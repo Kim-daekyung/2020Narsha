@@ -144,7 +144,7 @@ public class Player_Move : MonoBehaviour
     void AttackEnermy2()
     {
         //em_stat.curhp -= 10;
-<<<<<<< HEAD
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -157,7 +157,6 @@ public class Player_Move : MonoBehaviour
             //좌표 이동 구현 필요
         }
     }
-=======
+
     }
->>>>>>> c8321f0817ec5a9d29a35d130b9b8b383fecaf41
-}
+
