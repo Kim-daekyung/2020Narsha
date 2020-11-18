@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5011535793792148947}
   - component: {fileID: 5011535793792148956}
   - component: {fileID: 5011535793792148957}
+  - component: {fileID: 110701252832165297}
   - component: {fileID: 5011535793792148946}
   - component: {fileID: 5011535793792148959}
   m_Layer: 0
@@ -101,6 +102,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 170
+--- !u!114 &110701252832165297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011535793792148944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3fafc6cff028498d543b28a107cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5011535793792148946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePower: 40
+  canMoving: 1
 --- !u!50 &5011535793792148959
 Rigidbody2D:
   serializedVersion: 4
@@ -281,6 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5011535794373626204}
   - component: {fileID: 5011535794373626205}
+  - component: {fileID: 4989316771432924097}
   - component: {fileID: 5011535794373626200}
   - component: {fileID: 5011535794373626206}
   - component: {fileID: 5011535794373626207}
@@ -289,7 +304,7 @@ GameObject:
   - component: {fileID: 5011535794373626203}
   m_Layer: 0
   m_Name: "\uC801\uBAAC\uC2A4\uD130"
-  m_TagString: Untagged
+  m_TagString: Enermy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,6 +377,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4989316771432924097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011535794373626195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3fafc6cff028498d543b28a107cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &5011535794373626200
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -411,8 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18a94c4ba1f8924daf4fccbd5c25203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playergo: {fileID: 0}
-  player: {fileID: 0}
 --- !u!95 &5011535794373626194
 Animator:
   serializedVersion: 3

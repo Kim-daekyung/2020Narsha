@@ -53,16 +53,30 @@ public class EmAttack : MonoBehaviour
 
     public void AttackPlayer()
     {
+        float x = 0.0f;
+        float y = 0.0f;
+
         if (playerObject != null)
         {
+            x = playerObject.transform.position.x;
+            y = playerObject.transform.position.y;
+
             playerStat.curhp -= 10;
             playerAnimator.Play("player_damzing");
 
-            Debug.Log("데미지");
             if (playerStat.curhp <= 0)
             {
                 playerAnimator.Play("player_death");
                 Debug.Log("DEAD");
+            }
+
+            if (playerObject.transform.position.x > transform.position.x)
+            {
+                playerObject.transform.position = new Vector2(x + 20, y);
+            }
+            else
+            {
+                playerObject.transform.position = new Vector2(x - 20, y);
             }
         }
     }

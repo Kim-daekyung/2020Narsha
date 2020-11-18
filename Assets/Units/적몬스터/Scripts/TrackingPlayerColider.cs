@@ -10,6 +10,7 @@ public class TrackingPlayerColider : MonoBehaviour
     private Animator animator;
     private EmAttack emAttack;
     public float movePower = 35.0f;
+    public bool canMoving = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,7 +41,7 @@ public class TrackingPlayerColider : MonoBehaviour
         Vector3 moveVelocity = Vector3.zero;
         string dist = "";
 
-        if (isTracing)
+        if (isTracing && canMoving)
         {
             Vector3 playerPos = GameObject.FindWithTag("Player").transform.position;
 

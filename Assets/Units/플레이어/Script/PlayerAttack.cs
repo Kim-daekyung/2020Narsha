@@ -32,6 +32,27 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    private void FallBack()
+    {
+        float x = 0.0f;
+        float y = 0.0f;
+
+        if (emgo != null)
+        {
+            x = emgo.transform.position.x;
+            y = emgo.transform.position.y;
+
+            if (emgo.transform.position.x > transform.position.x)
+            {
+                emgo.transform.position = new Vector2(x + 20, y);
+            }
+            else
+            {
+                emgo.transform.position = new Vector2(x - 20, y);
+            }
+        }
+    }
+
     [System.Obsolete]
     public void AttackEnermy()
     {
@@ -39,6 +60,7 @@ public class PlayerAttack : MonoBehaviour
         {
             em_stat.curhp -= 10;
             animator.Play("monster_dam");
+            FallBack();
         }
     }
 
@@ -48,6 +70,7 @@ public class PlayerAttack : MonoBehaviour
         {
             em_stat.curhp -= 20;
             animator.Play("monster_dam");
+            FallBack();
         }
     }
 
@@ -57,6 +80,7 @@ public class PlayerAttack : MonoBehaviour
         {
             em_stat.curhp -= 30;
             animator.Play("monster_dam");
+            FallBack();
         }
     }
 }
