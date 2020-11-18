@@ -71,6 +71,7 @@ public class SubMenu : MonoBehaviour
             } //비활 -> 활성화
 
         }
+        if (Input.GetKeyDown(KeyCode.R)) restart();
     }
 
     public void restart() {

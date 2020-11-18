@@ -13,6 +13,10 @@ public class EmDead : MonoBehaviour
     void EnermyDead()
     {
         DestroyObject(gameObject);
-        GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s1e -= 1; //수정
+        if(GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 1)
+            GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s1e -= 1; //수정
+
+        if (GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 2)
+            GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s2e -= 1; //수정
     }
 }
