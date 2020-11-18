@@ -4,41 +4,56 @@ using UnityEngine;
 
 public class Talk_Manager : MonoBehaviour
 {
-    Dictionary<int, string[]> TalkData; //대화창 데이터 저장
+    public Game_Manager gameManager;
+
     public List<string> talkList;
+
+    public int stage = 0;
+
+    public int talklevel = 1;
+    public float talkTimer = 0.0f;
 
     void Awake()
     {
-        TalkData = new Dictionary<int, string[]>();
         GenerateTalkData();
     }
 
     void GenerateTalkData() //대화창 데이터
     {
-        talkList.Add("none");   //NULL
-        talkList.Add("스테이지 1 : 안녕?");
-        talkList.Add("스테이지 3 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 4 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 5 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 6 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 7 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 8 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 9 : 이 곳에 처음 왔구나?");
-        talkList.Add("스테이지 10 : 이 곳에 처음 왔구나?");
-
-        //talk
-        TalkData.Add(5000, new string[] { "기다려" });
+        talkList.Add("NULL");           //NULL
+        talkList.Add("STAGE1START");    //1스테이지
+        talkList.Add("STAGE2START");
+        talkList.Add("STAGE3START");
     }
 
-    public string GetTalk(int id, int talkIndex)
+    void Update()
     {
-        if (talkIndex == TalkData[id].Length)
+        if (talkTimer != 0.0f)
         {
-            return null;
+            //Debug.Log("대사 출력");
+            talkTimer += -Time.deltaTime;
+
+
+            if (talkTimer <= 0 || Input.GetKeyDown(KeyCode.Space))
+            {
+                talkTimer = 0.0f;
+
+                gameManager.TalkPanel.SetActive(false);
+                gameManager.NamePanel.SetActive(false);
+            }
         }
-        else
-        {
-            return TalkData[id][talkIndex];
-        }
+    }
+
+    public void OnStageStart(int inputStage)
+    {
+        stage = inputStage;
+        talkTimer = 3.0f;
+        talklevel = 0;
+
+        gameManager.TalkPanel.SetActive(true);
+        gameManager.NamePanel.SetActive(true);
+        gameManager.systemName(5000);
+        gameManager.text.SetMessage(gameManager.talkManager.talkList[gameManager.stage]);
+
     }
 }

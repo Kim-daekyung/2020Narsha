@@ -16,7 +16,6 @@ public class Player_Move : MonoBehaviour
     public PlayerUI playerui;
 
     public float talkTimer = 0.0f;
-    private int talklevel = 1;
     public PullEffect pulleffect = null;
 
     private float ctimer = 0.0f;
@@ -41,30 +40,12 @@ public class Player_Move : MonoBehaviour
 
     private void Update()
     {
-        /*if (rigid.position.x > 500 * talklevel)
+        if (rigid.position.x > 500 * 1)
         {
-            //on
-            gameManager.TalkPanel.SetActive(true);
-            gameManager.NamePanel.SetActive(true);
-
-            gameManager.systemName(5000);
-            gameManager.text.SetMessage(gameManager.talkManager.talkList[talklevel]);
-
-            talklevel++;
-
-            //N초 기다리기
-            talkTimer = 3.0f;
-        }*/
-
-        if (talkTimer != 0.0f)
-        {
-            talkTimer = talkTimer - Time.deltaTime;
-            if (talkTimer < 0.1f || Input.GetKeyDown(KeyCode.Space))
+            if (gameManager.stage != gameManager.talkManager.stage)
             {
-                talkTimer = 0.0f;
+                gameManager.talkManager.OnStageStart(gameManager.stage);
 
-                gameManager.TalkPanel.SetActive(false);
-                gameManager.NamePanel.SetActive(false);
             }
         }
 

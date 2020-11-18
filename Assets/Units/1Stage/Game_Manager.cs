@@ -14,6 +14,7 @@ public class Game_Manager : MonoBehaviour
     public Text NameText;               //이름 텍스트
 
     public bool isAction = false;       //대화창을 열었는가
+    public int stage = 1;
     public int talkIndex;               //대화 인덱스
     public int nameIndex;               //이름 인덱스
 
