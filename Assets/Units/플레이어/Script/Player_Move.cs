@@ -1,15 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-
-public class Player_Move : MonoBehaviour 
+public class Player_Move : MonoBehaviour
 {
-    
-    float timer; //수정
-    float waitingTime; //수정
+    private float timer; //수정
+    private float waitingTime; //수정
     public Animator animator;
     private SpriteRenderer sprite;
 
@@ -18,25 +12,24 @@ public class Player_Move : MonoBehaviour
     public Game_Manager gameManager;     //GameManager를 참조
     public Rigidbody2D rigid;           //rigid를 위치 스캔
 
-    PlayerStats player_stat = null;
+    private PlayerStats player_stat = null;
     public PlayerUI playerui;
 
     public float talkTimer = 0.0f;
-    int talklevel = 1;
+    private int talklevel = 1;
     public PullEffect pulleffect = null;
-    
 
-    float ctimer = 0.0f;
+    private float ctimer = 0.0f;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rigid = this.GetComponent<Rigidbody2D>();   //Rigidbody2D를 참조
         pulleffect = GameObject.Find("pullEffect").GetComponent<PullEffect>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_stat = GetComponent<PlayerStats>();
-        
+
         //playerui= GameObject.Find("체력바").GetComponent<PlayerUI>();
         //playerui.pstats = GetComponent<PlayerStats>();
         timer = 0.0f; //수정
@@ -44,8 +37,9 @@ public class Player_Move : MonoBehaviour
     }
 
     // Update is called once per frame
-	Vector3 vector = new Vector3();
-    void Update()
+    private Vector3 vector = new Vector3();
+
+    private void Update()
     {
         /*if (rigid.position.x > 500 * talklevel)
         {
@@ -60,7 +54,6 @@ public class Player_Move : MonoBehaviour
 
             //N초 기다리기
             talkTimer = 3.0f;
-
         }*/
 
         if (talkTimer != 0.0f)
@@ -72,12 +65,12 @@ public class Player_Move : MonoBehaviour
 
                 gameManager.TalkPanel.SetActive(false);
                 gameManager.NamePanel.SetActive(false);
-
             }
         }
 
         if (cooltime_attack > 0) cooltime_attack -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Q)){
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
             ctimer = 0.0f;
         }
         if (Input.GetKey(KeyCode.Q))
@@ -97,7 +90,6 @@ public class Player_Move : MonoBehaviour
             }
             else
             {
-                
                 cooltime_attack = 0.5f;
                 animator.SetBool("Attack", true);
             }
@@ -119,32 +111,35 @@ public class Player_Move : MonoBehaviour
             vector.Set(Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z);
             if (vector.x == 1)
             {
+                CircleCollider2D collider2D;
+
                 animator.SetBool("isWalk", true);
                 sprite.flipX = false;
-                transform.Translate(vector.x * player_stat .speed, 0, 0);
 
+                collider2D = transform.GetChild(0).GetComponent<CircleCollider2D>();
+                transform.GetChild(0).GetComponent<CircleCollider2D>().offset =
+                    new Vector2(-collider2D.offset.x, collider2D.offset.y);
 
+                transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
             else if (vector.x == -1)
             {
+                CircleCollider2D collider2D;
+
                 animator.SetBool("isWalk", true);
                 sprite.flipX = true;
-                transform.Translate(vector.x * player_stat .speed, 0, 0);
-
-
+                collider2D = transform.GetChild(0).GetComponent<CircleCollider2D>();
+                transform.GetChild(0).GetComponent<CircleCollider2D>().offset =
+                    new Vector2(collider2D.offset.x, collider2D.offset.y);
+                transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
-            
-
-
         }
         else animator.SetBool("isWalk", false);
-
     }
 
-    void AttackEnermy2()
+    private void AttackEnermy2()
     {
         //em_stat.curhp -= 10;
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -158,6 +153,4 @@ public class Player_Move : MonoBehaviour
             gameObject.transform.position = new Vector2(566, -10);
         }
     }
-
 }
-
