@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
     public float left_limit_s2 = 650; //수정
     public float right_limit_s2 = 948; //수정    
 
-    //public float left_limit_s3 = 650; //수정
-    //public float right_limit_s3 = 948; //수정
+    public float left_limit_s3 = 1215; //수정
+    public float right_limit_s3 = 1675; //수정
 
 
     // Start is called before the first frame update
@@ -41,10 +41,10 @@ public class CameraController : MonoBehaviour
             else if (player.position.x >= right_limit_s2) vec3.x = right_limit_s2; //수정
         }
 
-        /*if (GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 3) {
+        if (GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 3) {
             if (player.position.x < left_limit_s3) vec3.x = left_limit_s3; //수정
             else if (player.position.x >= right_limit_s3) vec3.x = right_limit_s3; //수정
-        }*/
+        }
 
         vec3.y = player.position.y + 27.50f;
         vec3.z = player.position.z;

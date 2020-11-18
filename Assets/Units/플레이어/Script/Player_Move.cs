@@ -124,8 +124,15 @@ public class Player_Move : MonoBehaviour
             && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s1e <= 0)
         {
             GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage = 2;
-            //좌표 이동 구현 필요
             gameObject.transform.position = new Vector2(566, -10);
+        }
+
+        if (other.gameObject.tag == "Stage2Wall"
+            && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 2
+            && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s2e <= 0)
+        {
+            GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage = 3;
+            gameObject.transform.position = new Vector2(1140, -10);
         }
     }
 }

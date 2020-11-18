@@ -14,5 +14,10 @@ public class EmOnOff : MonoBehaviour
             s1e1.gameObject.SetActive(true);
             s1e2.gameObject.SetActive(true);
         }
+        else
+        {
+            s1e1.gameObject.SetActive(false);
+            s1e2.gameObject.SetActive(false);
+        }
     }
 }

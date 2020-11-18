@@ -8,6 +8,7 @@ TagManager:
   - Object
   - Enermy
   - Stage1Wall
+  - Stage2Wall
   layers:
   - Default
   - TransparentFX
