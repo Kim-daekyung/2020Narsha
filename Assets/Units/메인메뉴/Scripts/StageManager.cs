@@ -14,8 +14,8 @@ public class StageManager : MonoBehaviour
     {
         stage = 1;
         s1e = 2;
-        s2e = 1;
-        s3e = 1;
+        s2e = 13;
+        s3e = 18;
     }
 
     // Update is called once per frame

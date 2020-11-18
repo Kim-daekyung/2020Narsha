@@ -119,6 +119,8 @@ public class Player_Move : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        UnityEngine.Debug.Log(GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage);
+
         if (other.gameObject.tag == "Stage1Wall"
             && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 1
             && GameObject.Find("스테이지 매니저").GetComponent<StageManager>().s1e <= 0)
