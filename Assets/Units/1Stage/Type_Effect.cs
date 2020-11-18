@@ -49,7 +49,7 @@ public class Type_Effect : MonoBehaviour
 
         messageText.text += targetMessage[index];
 
-        if (targetMessage[index] != ' ' || targetMessage[index] != '.')
+        if (targetMessage[index] != ' ')
         {
             audioSource.Play();
         }

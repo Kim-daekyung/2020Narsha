@@ -21,9 +21,9 @@ public class Talk_Manager : MonoBehaviour
     void GenerateTalkData() //대화창 데이터
     {
         talkList.Add("NULL");           //NULL
-        talkList.Add("STAGE1START");    //1스테이지
-        talkList.Add("STAGE2START");
-        talkList.Add("STAGE3START");
+        talkList.Add("적들에게 죽음을...");         //1스테이지
+        talkList.Add("도망칠 기회는 없다!");        //2스테이지
+        talkList.Add("니놈이 죽을 때가 되었다.");    //3스테이지
     }
 
     void Update()
