@@ -5,15 +5,24 @@ public class EmAttack : MonoBehaviour
     private GameObject playerObject;
     private PlayerStats playerStat;
     private Animator animator;
+    private Animator playerAnimator;
     private bool isMoving = false;
     public float attackPower = 10.0f;
     public bool isAttack = false;
 
     private void Start()
     {
-        playerObject = GameObject.FindWithTag("Player");
         animator = transform.parent.GetComponent<Animator>();
-        playerStat = playerObject.GetComponent<PlayerStats>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            playerObject = GameObject.FindWithTag("Player");
+            playerStat = playerObject.GetComponent<PlayerStats>();
+            playerAnimator = playerObject.GetComponent<Animator>();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -29,8 +38,29 @@ public class EmAttack : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isAttack = false;
-        animator.SetBool("isAttack", false);
-        animator.SetBool("isMoving", true);
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            isAttack = false;
+            animator.SetBool("isAttack", false);
+            animator.SetBool("isMoving", true);
+            playerObject = null;
+            playerStat = null;
+        }
+    }
+
+    public void AttackPlayer()
+    {
+        if (playerObject != null)
+        {
+            playerStat.curhp -= 10;
+            playerAnimator.Play("player_damazing");
+
+            Debug.Log("데미지");
+            if (playerStat.curhp <= 0)
+            {
+                playerAnimator.Play("player_death");
+                Debug.Log("DEAD");
+            }
+        }
     }
 }
