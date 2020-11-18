@@ -44,11 +44,11 @@ public class PlayerAttack : MonoBehaviour
 
             if (emgo.transform.position.x > transform.position.x)
             {
-                emgo.transform.position = new Vector2(x + 20, y);
+                emgo.transform.position = new Vector3(x + 20, y, emgo.transform.position.z);
             }
             else
             {
-                emgo.transform.position = new Vector2(x - 20, y);
+                emgo.transform.position = new Vector3(x - 20, y,emgo.transform.position.z);
             }
         }
     }

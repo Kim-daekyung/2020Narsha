@@ -5,10 +5,13 @@ using UnityEngine;
 public class PullEffect : MonoBehaviour
 {
     public SpriteRenderer spt = null;
+    private Animator animator = null;
     // Start is called before the first frame update
     void Start()
     {
         spt = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        
 
     }
 
@@ -20,6 +23,7 @@ public class PullEffect : MonoBehaviour
     public void ONEffect()
     {
         this.gameObject.SetActive(true);
+        animator.Play("effect");
     }
     public void OFFEffect()
     {

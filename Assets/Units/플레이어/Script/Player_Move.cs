@@ -25,6 +25,7 @@ public class Player_Move : MonoBehaviour
     {
         rigid = this.GetComponent<Rigidbody2D>();   //Rigidbody2D를 참조
         pulleffect = GameObject.Find("pullEffect").GetComponent<PullEffect>();
+        pulleffect.gameObject.SetActive(false);
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_stat = GetComponent<PlayerStats>();

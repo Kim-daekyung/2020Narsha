@@ -72,11 +72,11 @@ public class EmAttack : MonoBehaviour
 
             if (playerObject.transform.position.x > transform.position.x)
             {
-                playerObject.transform.position = new Vector2(x + 20, y);
+                playerObject.transform.position = new Vector3(x + 20, y,playerObject.transform.position.z);
             }
             else
             {
-                playerObject.transform.position = new Vector2(x - 20, y);
+                playerObject.transform.position = new Vector3(x - 20, y, playerObject.transform.position.z);
             }
         }
     }

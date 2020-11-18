@@ -8,11 +8,11 @@ public class EmHitted : MonoBehaviour
 
     public void HittedStart()
     {
-        transform.GetComponent<TrackingPlayerColider>().canMoving = false;
+        //transform.GetComponent<TrackingPlayerColider>().canMoving = false;
     }
 
     public void HittedStop()
     {
-        transform.GetComponent<TrackingPlayerColider>().canMoving = true;
+        //transform.GetComponent<TrackingPlayerColider>().canMoving = true;
     }
 }
