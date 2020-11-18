@@ -7,12 +7,17 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject SMenu;
 
+    public void Start()
+    {
+        GameObject.Find("서브메뉴 매니저").GetComponent<SubMenu>().PDead();
+    }
+
     public void OnClickNewGame()
     {
         Debug.Log("새 게임");
         SoundManager.instance.PlaySound2();
         StartCoroutine(DelayStart());
-        
+        GameObject.Find("서브메뉴 매니저").GetComponent<SubMenu>().PAlive();
     }
 
 
