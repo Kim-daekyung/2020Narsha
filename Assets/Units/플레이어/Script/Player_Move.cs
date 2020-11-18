@@ -91,26 +91,20 @@ public class Player_Move : MonoBehaviour
             vector.Set(Input.GetAxisRaw("Horizontal"), transform.position.y, transform.position.z);
             if (vector.x == 1)
             {
-                CircleCollider2D collider2D;
-
                 animator.SetBool("isWalk", true);
                 sprite.flipX = false;
 
-                collider2D = transform.GetChild(0).GetComponent<CircleCollider2D>();
-                transform.GetChild(0).GetComponent<CircleCollider2D>().offset =
-                    new Vector2(29.24935f, collider2D.offset.y);
+                transform.GetChild(0).GetComponent<CapsuleCollider2D>().offset =
+                    new Vector2(10.0f, 1.0f);
 
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
             else if (vector.x == -1)
             {
-                CircleCollider2D collider2D;
-
                 animator.SetBool("isWalk", true);
                 sprite.flipX = true;
-                collider2D = transform.GetChild(0).GetComponent<CircleCollider2D>();
-                transform.GetChild(0).GetComponent<CircleCollider2D>().offset =
-                    new Vector2(-29.24935f, collider2D.offset.y);
+                transform.GetChild(0).GetComponent<CapsuleCollider2D>().offset =
+                    new Vector2(-55.0f, 1.0f);
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
         }

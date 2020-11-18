@@ -29,6 +29,9 @@ public class EmAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerObject = GameObject.FindWithTag("Player");
+            playerStat = playerObject.GetComponent<PlayerStats>();
+            playerAnimator = playerObject.GetComponent<Animator>();
             animator.SetBool("isAttack", true);
             animator.SetBool("isMoving", false);
             isMoving = false;

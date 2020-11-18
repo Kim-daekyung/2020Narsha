@@ -106,7 +106,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3461775738411152208}
   - component: {fileID: 3461775738411152213}
-  - component: {fileID: 3461775738411152215}
+  - component: {fileID: 5810057118427285381}
+  - component: {fileID: 6800753506074555933}
+  - component: {fileID: 3083826441631782591}
   m_Layer: 0
   m_Name: "\uACF5\uACA9\uBC94\uC704"
   m_TagString: Untagged
@@ -179,8 +181,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3461775738411152215
-CircleCollider2D:
+--- !u!114 &5810057118427285381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461775738411152209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c793fe984d639ad4e9c5eae04c857dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emgo: {fileID: 0}
+  Monster: {fileID: 0}
+  Monem: {fileID: 0}
+  attack: 0
+--- !u!50 &6800753506074555933
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461775738411152209}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!70 &3083826441631782591
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -192,9 +231,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 29.249346, y: 9.753331}
-  serializedVersion: 2
-  m_Radius: 15.669415
+  m_Offset: {x: -10, y: 1}
+  m_Size: {x: 38.733112, y: 52.08191}
+  m_Direction: 0
 --- !u!1 &9097888207888617281
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,14 +244,14 @@ GameObject:
   m_Component:
   - component: {fileID: 9097888207888617287}
   - component: {fileID: 9097888207888617280}
+  - component: {fileID: 4254765969403917673}
   - component: {fileID: 9097888207888617285}
   - component: {fileID: 9097888207888617286}
   - component: {fileID: 9097888207888617307}
   - component: {fileID: 6263869474598236813}
   - component: {fileID: 5551546949663032617}
-  - component: {fileID: 9097888207888617284}
   m_Layer: 0
-  m_Name: "\uD50C\uB808\uC774\uC5B4 1"
+  m_Name: "\uD50C\uB808\uC774\uC5B4"
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,6 +325,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4254765969403917673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097888207888617281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91ad58f971cebd4d85eee4eb557f55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9097888207888617285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,19 +430,3 @@ MonoBehaviour:
   curstemana: 0
   attackpower: 0
   speed: 2
---- !u!114 &9097888207888617284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097888207888617281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c793fe984d639ad4e9c5eae04c857dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emgo: {fileID: 0}
-  Monster: {fileID: 0}
-  Monem: {fileID: 0}
-  attack: 0
