@@ -45,7 +45,6 @@ public class Player_Move : MonoBehaviour
             if (gameManager.stage != gameManager.talkManager.stage)
             {
                 gameManager.talkManager.OnStageStart(gameManager.stage);
-
             }
         }
 
@@ -99,7 +98,7 @@ public class Player_Move : MonoBehaviour
 
                 collider2D = transform.GetChild(0).GetComponent<CircleCollider2D>();
                 transform.GetChild(0).GetComponent<CircleCollider2D>().offset =
-                    new Vector2(-collider2D.offset.x, collider2D.offset.y);
+                    new Vector2(29.24935f, collider2D.offset.y);
 
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
@@ -111,7 +110,7 @@ public class Player_Move : MonoBehaviour
                 sprite.flipX = true;
                 collider2D = transform.GetChild(0).GetComponent<CircleCollider2D>();
                 transform.GetChild(0).GetComponent<CircleCollider2D>().offset =
-                    new Vector2(collider2D.offset.x, collider2D.offset.y);
+                    new Vector2(-29.24935f, collider2D.offset.y);
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
         }

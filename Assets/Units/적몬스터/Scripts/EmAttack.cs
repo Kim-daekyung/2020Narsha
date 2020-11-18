@@ -53,7 +53,7 @@ public class EmAttack : MonoBehaviour
         if (playerObject != null)
         {
             playerStat.curhp -= 10;
-            playerAnimator.Play("player_damazing");
+            playerAnimator.Play("player_damzing");
 
             Debug.Log("데미지");
             if (playerStat.curhp <= 0)
