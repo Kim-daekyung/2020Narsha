@@ -1,54 +1,86 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EmOnOff : MonoBehaviour
 {
-    public GameObject s1e1 = GameObject.Find("적몬스터");
-    public GameObject s1e2 = GameObject.Find("적몬스터 (1)");
+    public GameObject s1e1;
+    public GameObject s1e2;
 
-    public GameObject s2e1 = GameObject.Find("적몬스터 (2)");
-    public GameObject s2e2 = GameObject.Find("적몬스터 (3)");
-    public GameObject s2e3 = GameObject.Find("적몬스터 (5)");
-    public GameObject s2e4 = GameObject.Find("적몬스터 (6)");
-    public GameObject s2e5 = GameObject.Find("적몬스터 (7)");
-    public GameObject s2e6 = GameObject.Find("적몬스터 (9)");
-    public GameObject s2e7 = GameObject.Find("적몬스터 (15)");
-    public GameObject s2e8 = GameObject.Find("적몬스터 (14)");
-    public GameObject s2e9 = GameObject.Find("적몬스터 (17)");
-    public GameObject s2e10 = GameObject.Find("적몬스터 (23)");
-    public GameObject s2e11 = GameObject.Find("적몬스터 (22)");
-    public GameObject s2e12 = GameObject.Find("적몬스터 (25)");
-    public GameObject s2e13 = GameObject.Find("적몬스터 (30)");
+    public GameObject s2e1;
+    public GameObject s2e2;
+    public GameObject s2e3;
+    public GameObject s2e4;
+    public GameObject s2e5;
+    public GameObject s2e6;
+    public GameObject s2e7;
+    public GameObject s2e8;
+    public GameObject s2e9;
+    public GameObject s2e10;
+    public GameObject s2e11;
+    public GameObject s2e12;
+    public GameObject s2e13;
 
-
-    public GameObject s3e1 = GameObject.Find("적몬스터 (4)");
-    public GameObject s3e2 = GameObject.Find("적몬스터 (11)");
-    public GameObject s3e3 = GameObject.Find("적몬스터 (10)");
-    public GameObject s3e4 = GameObject.Find("적몬스터 (8)");
-    public GameObject s3e5 = GameObject.Find("적몬스터 (13)");
-    public GameObject s3e6 = GameObject.Find("적몬스터 (12)");
-    public GameObject s3e7 = GameObject.Find("적몬스터 (12)");
-    public GameObject s3e8 = GameObject.Find("적몬스터 (19)");
-    public GameObject s3e9 = GameObject.Find("적몬스터 (18)");
-    public GameObject s3e10 = GameObject.Find("적몬스터 (16)");
-    public GameObject s3e11 = GameObject.Find("적몬스터 (21)");
-    public GameObject s3e12 = GameObject.Find("적몬스터 (20)");
-    public GameObject s3e13 = GameObject.Find("적몬스터 (27)");
-    public GameObject s3e14 = GameObject.Find("적몬스터 (26)");
-    public GameObject s3e15 = GameObject.Find("적몬스터 (24)");
-    public GameObject s3e16 = GameObject.Find("적몬스터 (31)");
-    public GameObject s3e17 = GameObject.Find("적몬스터 (29)");
-    public GameObject s3e18 = GameObject.Find("적몬스터 (28)");
+    public GameObject s3e1;
+    public GameObject s3e2;
+    public GameObject s3e3;
+    public GameObject s3e4;
+    public GameObject s3e5;
+    public GameObject s3e6;
+    public GameObject s3e7;
+    public GameObject s3e8;
+    public GameObject s3e9;
+    public GameObject s3e10;
+    public GameObject s3e11;
+    public GameObject s3e12;
+    public GameObject s3e13;
+    public GameObject s3e14;
+    public GameObject s3e15;
+    public GameObject s3e16;
+    public GameObject s3e17;
+    public GameObject s3e18;
 
     private void Start()
     {
-        
+        s1e1 = GameObject.Find("적몬스터");
+
+        s1e2 = GameObject.Find("적몬스터 (1)");
+
+        s2e1 = GameObject.Find("적몬스터 (2)");
+        s2e2 = GameObject.Find("적몬스터 (3)");
+        s2e3 = GameObject.Find("적몬스터 (5)");
+        s2e4 = GameObject.Find("적몬스터 (6)");
+        s2e5 = GameObject.Find("적몬스터 (7)");
+        s2e6 = GameObject.Find("적몬스터 (9)");
+        s2e7 = GameObject.Find("적몬스터 (15)");
+        s2e8 = GameObject.Find("적몬스터 (14)");
+        s2e9 = GameObject.Find("적몬스터 (17)");
+        s2e10 = GameObject.Find("적몬스터 (23)");
+        s2e11 = GameObject.Find("적몬스터 (22)");
+        s2e12 = GameObject.Find("적몬스터 (25)");
+        s2e13 = GameObject.Find("적몬스터 (30)");
+
+        s3e1 = GameObject.Find("적몬스터 (4)");
+        s3e2 = GameObject.Find("적몬스터 (11)");
+        s3e3 = GameObject.Find("적몬스터 (10)");
+        s3e4 = GameObject.Find("적몬스터 (8)");
+        s3e5 = GameObject.Find("적몬스터 (13)");
+        s3e6 = GameObject.Find("적몬스터 (12)");
+        s3e7 = GameObject.Find("적몬스터 (12)");
+        s3e8 = GameObject.Find("적몬스터 (19)");
+        s3e9 = GameObject.Find("적몬스터 (18)");
+        s3e10 = GameObject.Find("적몬스터 (16)");
+        s3e11 = GameObject.Find("적몬스터 (21)");
+        s3e12 = GameObject.Find("적몬스터 (20)");
+        s3e13 = GameObject.Find("적몬스터 (27)");
+        s3e14 = GameObject.Find("적몬스터 (26)");
+        s3e15 = GameObject.Find("적몬스터 (24)");
+        s3e16 = GameObject.Find("적몬스터 (31)");
+        s3e17 = GameObject.Find("적몬스터 (29)");
+        s3e18 = GameObject.Find("적몬스터 (28)");
     }
 
-    void Update()
+    private void Update()
     {
-        if(GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 1)
+        if (GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 1)
         {
             s1e1.gameObject.SetActive(true);
             s1e2.gameObject.SetActive(true);
