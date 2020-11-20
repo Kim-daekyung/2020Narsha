@@ -7898,7 +7898,7 @@ PrefabInstance:
     - target: {fileID: 2904514253899678409, guid: 3b26cb2317855e5419f4b00c60bb63e8,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2904514253899678409, guid: 3b26cb2317855e5419f4b00c60bb63e8,
         type: 3}
@@ -7940,10 +7940,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 4.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3083826441631782591, guid: 3b26cb2317855e5419f4b00c60bb63e8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3461775738411152208, guid: 3b26cb2317855e5419f4b00c60bb63e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9097888207888617281, guid: 3b26cb2317855e5419f4b00c60bb63e8,
         type: 3}

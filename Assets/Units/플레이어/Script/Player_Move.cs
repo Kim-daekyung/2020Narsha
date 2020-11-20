@@ -96,7 +96,10 @@ public class Player_Move : MonoBehaviour
                 sprite.flipX = false;
 
                 transform.GetChild(0).GetComponent<CapsuleCollider2D>().offset =
-                    new Vector2(10.0f, 1.0f);
+                    new Vector2(13.0f, 1.0f);
+
+                transform.GetChild(0).GetComponent<CapsuleCollider2D>().transform.localPosition =
+                    new Vector2(0, 0);
 
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
@@ -105,7 +108,9 @@ public class Player_Move : MonoBehaviour
                 animator.SetBool("isWalk", true);
                 sprite.flipX = true;
                 transform.GetChild(0).GetComponent<CapsuleCollider2D>().offset =
-                    new Vector2(-55.0f, 1.0f);
+                    new Vector2(-13.0f, 1.0f);
+                transform.GetChild(0).GetComponent<CapsuleCollider2D>().transform.localPosition =
+                    new Vector2(0, 0);
                 transform.Translate(vector.x * player_stat.speed, 0, 0);
             }
         }

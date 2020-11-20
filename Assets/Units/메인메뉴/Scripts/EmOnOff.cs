@@ -41,6 +41,11 @@ public class EmOnOff : MonoBehaviour
     public GameObject s3e17 = GameObject.Find("적몬스터 (29)");
     public GameObject s3e18 = GameObject.Find("적몬스터 (28)");
 
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {
         if(GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 1)
