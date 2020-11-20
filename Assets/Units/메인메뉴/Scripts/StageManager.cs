@@ -21,8 +21,8 @@ public class StageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) stage += 1;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) stage -= 1;
+        //if (Input.GetKeyDown(KeyCode.UpArrow)) stage += 1;
+        //if (Input.GetKeyDown(KeyCode.DownArrow)) stage -= 1;
     }
 }
 

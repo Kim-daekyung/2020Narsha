@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator animator = null;
 
     public GameObject emgo = null;
+    public EmStats emStats = null;
     public MonsterMove Monster = null;
     public EmAttack Monem = null;
     public int attack = 0;
@@ -15,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
         if (collision.gameObject.tag == "Enermy")
         {
             emgo = collision.gameObject;
+            emStats = emgo.GetComponent<EmStats>();
             Monster = emgo.GetComponent<MonsterMove>();
             em_stat = emgo.GetComponent<EmStats>();
             animator = emgo.GetComponent<Animator>();
@@ -56,6 +58,11 @@ public class PlayerAttack : MonoBehaviour
     [System.Obsolete]
     public void AttackEnermy()
     {
+        if (emStats.isDead)
+        {
+            return;
+        }
+
         if (emgo != null)
         {
             em_stat.curhp -= 10;
@@ -66,6 +73,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void AttackEnermy2()
     {
+        if (emStats.isDead)
+        {
+            return;
+        }
         if (emgo != null)
         {
             em_stat.curhp -= 20;
@@ -76,6 +87,11 @@ public class PlayerAttack : MonoBehaviour
 
     public void PullAttackEnermy()
     {
+        if (emStats.isDead)
+        {
+            return;
+        }
+
         if (emgo != null)
         {
             em_stat.curhp -= 30;
