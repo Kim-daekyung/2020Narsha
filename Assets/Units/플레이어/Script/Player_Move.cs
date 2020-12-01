@@ -57,21 +57,22 @@ public class Player_Move : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             ctimer += Time.deltaTime;
-            if (ctimer > 0.5f)
+            if (ctimer > 2.0f)
             {
                 pulleffect.ONEffect();
             }
         }
         if (Input.GetKeyUp(KeyCode.Q) && cooltime_attack <= 0 && GameObject.Find("플레이어").GetComponent<PlayerStats>().speed == 2.0)//수정
         {
-            if (ctimer > 0.5f)
+            if (ctimer > 2.0f)
             {
                 pulleffect.OFFEffect();
                 animator.SetTrigger("PullAttack");
             }
             else
             {
-                cooltime_attack = 0.5f;
+                cooltime_attack =0.1f;
+                
                 animator.SetBool("Attack", true);
             }
         }

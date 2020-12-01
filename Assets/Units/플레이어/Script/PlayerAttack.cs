@@ -10,6 +10,9 @@ public class PlayerAttack : MonoBehaviour
     public MonsterMove Monster = null;
     public EmAttack Monem = null;
     public int attack = 0;
+    public PlayerStats playerstat = null;
+    private int Mhp = 300;
+     
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
             Monster = emgo.GetComponent<MonsterMove>();
             em_stat = emgo.GetComponent<EmStats>();
             animator = emgo.GetComponent<Animator>();
+            playerstat = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+
         }
     }
 
@@ -67,7 +72,9 @@ public class PlayerAttack : MonoBehaviour
         {
             em_stat.curhp -= 10;
             animator.Play("monster_dam");
+                 playerstat.curhp += 1;
             FallBack();
+           
         }
     }
 
@@ -81,7 +88,9 @@ public class PlayerAttack : MonoBehaviour
         {
             em_stat.curhp -= 20;
             animator.Play("monster_dam");
+            playerstat.curhp += 1;
             FallBack();
+            
         }
     }
 
@@ -94,9 +103,17 @@ public class PlayerAttack : MonoBehaviour
 
         if (emgo != null)
         {
-            em_stat.curhp -= 30;
+            em_stat.curhp -= 100;
+            
             animator.Play("monster_dam");
+            if (playerstat.curhp >= Mhp)
+            {
+                playerstat.curhp = Mhp;
+            }
+            else
+            playerstat.curhp += 50;
             FallBack();
+            
         }
     }
 }

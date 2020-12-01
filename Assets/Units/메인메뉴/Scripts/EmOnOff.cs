@@ -85,11 +85,11 @@ public class EmOnOff : MonoBehaviour
             s1e1.gameObject.SetActive(true);
             s1e2.gameObject.SetActive(true);
         }
-        else
+        /*else
         {
             s1e1.gameObject.SetActive(false);
             s1e2.gameObject.SetActive(false);
-        }
+        }*/
 
         if (GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 2)
         {
@@ -107,7 +107,7 @@ public class EmOnOff : MonoBehaviour
             s2e12.gameObject.SetActive(true);
             s2e13.gameObject.SetActive(true);
         }
-        else
+        /*else
         {
             s2e1.gameObject.SetActive(false);
             s2e2.gameObject.SetActive(false);
@@ -122,7 +122,7 @@ public class EmOnOff : MonoBehaviour
             s2e11.gameObject.SetActive(false);
             s2e12.gameObject.SetActive(false);
             s2e13.gameObject.SetActive(false);
-        }
+        }*/
 
         if (GameObject.Find("스테이지 매니저").GetComponent<StageManager>().stage == 3)
         {
@@ -145,7 +145,7 @@ public class EmOnOff : MonoBehaviour
             s3e17.gameObject.SetActive(true);
             s3e18.gameObject.SetActive(true);
         }
-        else
+        /*else
         {
             s3e1.gameObject.SetActive(false);
             s3e2.gameObject.SetActive(false);
@@ -165,6 +165,6 @@ public class EmOnOff : MonoBehaviour
             s3e16.gameObject.SetActive(false);
             s3e17.gameObject.SetActive(false);
             s3e18.gameObject.SetActive(false);
-        }
+        }*/
     }
 }
